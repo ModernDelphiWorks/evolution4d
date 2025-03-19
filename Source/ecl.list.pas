@@ -1,19 +1,19 @@
-{
+Ôªø{
                ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
 
                     GNU Lesser General Public License
-                      Vers„o 3, 29 de junho de 2007
+                      Vers√£o 3, 29 de junho de 2007
 
        Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-       A todos È permitido copiar e distribuir cÛpias deste documento de
-       licenÁa, mas mud·-lo n„o È permitido.
+       A todos √© permitido copiar e distribuir c√≥pias deste documento de
+       licen√ßa, mas mud√°-lo n√£o √© permitido.
 
-       Esta vers„o da GNU Lesser General Public License incorpora
-       os termos e condiÁıes da vers„o 3 da GNU General Public License
-       LicenÁa, complementado pelas permissıes adicionais listadas no
+       Esta vers√£o da GNU Lesser General Public License incorpora
+       os termos e condi√ß√µes da vers√£o 3 da GNU General Public License
+       Licen√ßa, complementado pelas permiss√µes adicionais listadas no
        arquivo LICENSE na pasta principal.
 }
 
@@ -333,11 +333,11 @@ type
     function IsEmpty: Boolean;
 
     /// <summary>
-    ///   Retorna uma representaÁ„o de String deste objeto.
+    ///   Retorna uma representa√ß√£o de String deste objeto.
     /// </summary>
     /// <remarks>
-    ///   Esta funÁ„o È chamada automaticamente quando vocÍ usa funÁıes que exigem
-    ///   uma representaÁ„o de String deste objeto, como WriteLn ou String.Format.
+    ///   Esta fun√ß√£o √© chamada automaticamente quando voc√™ usa fun√ß√µes que exigem
+    ///   uma representa√ß√£o de String deste objeto, como WriteLn ou String.Format.
     /// </remarks>
     /// <returns>
     ///   Uma String que representa este objeto.

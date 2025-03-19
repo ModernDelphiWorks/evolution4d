@@ -1,15 +1,15 @@
-{
+Ôªø{
                ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
 
                     GNU Lesser General Public License
-                      Vers„o 3, 29 de junho de 2007
+                      Vers√£o 3, 29 de junho de 2007
 
        Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-       A todos È permitido copiar e distribuir cÛpias deste documento de
-       licenÁa, mas mud·-lo n„o È permitido.
+       A todos √© permitido copiar e distribuir c√≥pias deste documento de
+       licen√ßa, mas mud√°-lo n√£o √© permitido.
 }
 
 {
@@ -267,7 +267,7 @@ begin
   if AValue.IsType<String> then
   begin
     LStringValue := AValue.AsString;
-    LStringValue := ReplaceVars(LStringValue);  // InterpolaÁ„o ao adicionar
+    LStringValue := ReplaceVars(LStringValue);  // Interpola√ß√£o ao adicionar
     FVariables.AddOrSetValue(AName, TValue.From<String>(LStringValue));
   end
   else

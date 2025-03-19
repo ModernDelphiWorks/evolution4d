@@ -1,19 +1,19 @@
-{
+Ôªø{
                ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
 
                     GNU Lesser General Public License
-                      Vers„o 3, 29 de junho de 2007
+                      Vers√£o 3, 29 de junho de 2007
 
        Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-       A todos È permitido copiar e distribuir cÛpias deste documento de
-       licenÁa, mas mud·-lo n„o È permitido.
+       A todos √© permitido copiar e distribuir c√≥pias deste documento de
+       licen√ßa, mas mud√°-lo n√£o √© permitido.
 
-       Esta vers„o da GNU Lesser General Public License incorpora
-       os termos e condiÁıes da vers„o 3 da GNU General Public License
-       LicenÁa, complementado pelas permissıes adicionais listadas no
+       Esta vers√£o da GNU Lesser General Public License incorpora
+       os termos e condi√ß√µes da vers√£o 3 da GNU General Public License
+       Licen√ßa, complementado pelas permiss√µes adicionais listadas no
        arquivo LICENSE na pasta principal.
 }
 
@@ -260,7 +260,7 @@ type
     ///   Partitions the stream into two based on a predicate.
     /// </summary>
     /// <remarks>
-    ///   Returns a TPair with two TStreamReaderEx instances: one for lines matching the predicate, and one for those that donít.
+    ///   Returns a TPair with two TStreamReaderEx instances: one for lines matching the predicate, and one for those that don‚Äôt.
     /// </remarks>
     /// <param name="APredicate">A function that returns true for lines to include in the left partition.</param>
     /// <returns>A TPair containing the two partitioned TStreamReaderEx instances.</returns>
