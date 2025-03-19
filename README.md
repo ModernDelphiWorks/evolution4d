@@ -77,6 +77,7 @@ begin
       Result := Acc + Value;
     end)); // Saída: 150
 end;
+```delphi
 
 ## ecl.tuple - Tuplas Posicionais e Nomeadas
 
