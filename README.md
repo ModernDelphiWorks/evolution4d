@@ -1012,18 +1012,18 @@ var
 begin
   // Executando um bloco com função
   Safe := &Try(function: TValue
-    begin
-      Result := TValue.From(42 div 0); // Simula uma divisão por zero
-    end)
-    .&Except(procedure(E: Exception)
-      begin
-        Writeln('Exceção capturada: ', E.Message);
-      end)
-    .&Finally(procedure
-      begin
-        Writeln('Finalizando execução');
-      end)
-    .&End;
+               begin
+                 Result := TValue.From(42 div 0); // Simula uma divisão por zero
+               end)
+         .&Except(procedure(E: Exception)
+                  begin
+                    Writeln('Exceção capturada: ', E.Message);
+                  end)
+         .&Finally(procedure
+                   begin
+                     Writeln('Finalizando execução');
+                   end)
+        .&End;
 
   Writeln('IsOk: ', Safe.IsOk); // Saída: IsOk: False
   Writeln('Erro: ', Safe.ExceptionMessage); // Saída: Erro: Division by zero
