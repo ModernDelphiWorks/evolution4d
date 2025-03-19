@@ -1,11 +1,11 @@
-# ECLBr
+# ECL - Evolution Core Library for Delphi
 
-A linguagem de programação Delphi, conhecida por sua poderosa capacidade de desenvolvimento de aplicativos Windows e uma ampla base de código legado, é altamente valorizada pelos desenvolvedores. No entanto, com a evolução do cenário de desenvolvimento de software, surgem novos desafios e demandas. É nesse contexto que a biblioteca "ECLBr" (Essential Core Library for Delphi) entra em cena, oferecendo aos desenvolvedores recursos inspirados em linguagens modernas e padrões de programação avançados.
+A linguagem de programação Delphi, conhecida por sua poderosa capacidade de desenvolvimento de aplicativos Windows e uma ampla base de código legado, é altamente valorizada pelos desenvolvedores. No entanto, com a evolução do cenário de desenvolvimento de software, surgem novos desafios e demandas. É nesse contexto que a biblioteca "ECL" (Essential Core Library for Delphi) entra em cena, oferecendo aos desenvolvedores recursos inspirados em linguagens modernas e padrões de programação avançados.
 
-## O Significado de ECLBr
-O nome "ECLBr" é uma abreviação de "Essential Core Library for Delphi". Essa biblioteca foi criada com o objetivo de fornecer um conjunto essencial de recursos para os desenvolvedores Delphi, permitindo que eles aprimorem seus projetos com conceitos modernos de programação e padrões que são comuns em outras linguagens.
+## O Significado de ECL
+O nome "ECL" é uma abreviação de "Essential Core Library for Delphi". Essa biblioteca foi criada com o objetivo de fornecer um conjunto essencial de recursos para os desenvolvedores Delphi, permitindo que eles aprimorem seus projetos com conceitos modernos de programação e padrões que são comuns em outras linguagens.
 Os Recursos da Biblioteca
-A ECLBr introduz uma série de classes e extensões de classes que ajudam a trazer funcionalidades e paradigmas de programação modernos para o Delphi. A seguir, apresentamos alguns dos principais componentes da biblioteca:
+A ECL introduz uma série de classes e extensões de classes que ajudam a trazer funcionalidades e paradigmas de programação modernos para o Delphi. A seguir, apresentamos alguns dos principais componentes da biblioteca:
 
 ## Novas Classes
 ### 1. TMatch<T>
@@ -38,19 +38,19 @@ TDicEx<K, V> estende a classe TDictionary<K, V> para oferecer funcionalidades av
 Esta extensão simplifica a leitura de dados de arquivos de texto usando a classe TStreamReader. Isso torna a manipulação de arquivos de texto mais eficiente e conveniente.
 
 ### Recursos Funcionais
-Além das classes mencionadas, a biblioteca ECLBr traz conceitos de programação funcional para Delphi. Os desenvolvedores podem aproveitar recursos como Map(), Filter(), ForEach() e outros para trabalhar com suas coleções de dados de maneira mais declarativa e eficiente. Isso não apenas simplifica o código, mas também melhora a legibilidade e a manutenção.
+Além das classes mencionadas, a biblioteca ECL traz conceitos de programação funcional para Delphi. Os desenvolvedores podem aproveitar recursos como Map(), Filter(), ForEach() e outros para trabalhar com suas coleções de dados de maneira mais declarativa e eficiente. Isso não apenas simplifica o código, mas também melhora a legibilidade e a manutenção.
 
-### Benefícios da ECLBr
-A ECLBr oferece inúmeros benefícios aos desenvolvedores Delphi:
+### Benefícios da ECL
+A ECL oferece inúmeros benefícios aos desenvolvedores Delphi:
 
 1. Melhor Legibilidade do Código: Os recursos de programação funcional e o Pattern Matching tornam o código mais claro e fácil de entender.
 2. Redução de Complexidade: A biblioteca simplifica a lógica condicional e as operações em coleções, reduzindo a complexidade do código.
 3. Maior Produtividade: Recursos como Map(), Filter(), e ForEach() permitem que os desenvolvedores realizem tarefas comuns de maneira mais rápida e eficiente.
-4. Compatibilidade com Padrões Modernos: A ECLBr permite que os desenvolvedores Delphi adotem padrões e conceitos modernos que são amplamente aceitos na comunidade de desenvolvimento de software.
+4. Compatibilidade com Padrões Modernos: A ECL permite que os desenvolvedores Delphi adotem padrões e conceitos modernos que são amplamente aceitos na comunidade de desenvolvimento de software.
 5. Reutilização de Código: As extensões de classes existentes facilitam a reutilização de código e a aplicação de padrões comuns.
 6. Resolução de Problemas Complexos: O Pattern Matching pode ser usado para resolver problemas complexos de maneira mais elegante e simples.
-7. Flexibilidade: A ECLBr oferece flexibilidade ao permitir que os desenvolvedores trabalhem com tipos de dados variados, como tuplas e mapas.
+7. Flexibilidade: A ECL oferece flexibilidade ao permitir que os desenvolvedores trabalhem com tipos de dados variados, como tuplas e mapas.
 
 ### Conclusão
 
-A biblioteca ECLBr é uma adição valiosa para o ecossistema Delphi. Ela capacita os desenvolvedores a tirar proveito de recursos modernos e paradigmas de programação avançados, tornando o desenvolvimento de aplicativos Delphi mais eficiente e expressivo. Com suas novas classes e extensões de classes existentes, a ECLBr traz o poder da programação funcional, o conceito de Pattern Matching e a flexibilidade de tipos variados para o Delphi, permitindo que os desenvolvedores alcancem um novo nível de produtividade e clareza em seus projetos.
+A biblioteca ECL é uma adição valiosa para o ecossistema Delphi. Ela capacita os desenvolvedores a tirar proveito de recursos modernos e paradigmas de programação avançados, tornando o desenvolvimento de aplicativos Delphi mais eficiente e expressivo. Com suas novas classes e extensões de classes existentes, a ECL traz o poder da programação funcional, o conceito de Pattern Matching e a flexibilidade de tipos variados para o Delphi, permitindo que os desenvolvedores alcancem um novo nível de produtividade e clareza em seus projetos.
