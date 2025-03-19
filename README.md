@@ -912,8 +912,14 @@ begin
   Writeln('Mapped: ', StrOpt.Unwrap); // Saída: Mapped: Number: 42
 
   // Usando Match
-  Opt.Match(procedure(Value: Integer) begin Result := 'Some: ' + Value.ToString; end,
-            procedure begin Result := 'None'; end);
+  Opt.Match(procedure(Value: Integer) 
+            begin 
+              Result := 'Some: ' + Value.ToString; 
+            end,
+            procedure 
+            begin 
+              Result := 'None'; 
+            end);
   Writeln(Result); // Saída: Some: 42
 
   // Criando um TOption vazio
@@ -1030,10 +1036,10 @@ begin
 
   // Executando um bloco com procedimento
   Safe := &Try(procedure
-    begin
-      Writeln('Executando com sucesso');
-    end)
-    .&End;
+               begin
+                 Writeln('Executando com sucesso');
+               end)
+         .&End;
 
   Writeln('IsOk: ', Safe.IsOk); // Saída: IsOk: True
   if Safe.TryGetValue(var Value: TValue) then
@@ -1041,10 +1047,10 @@ begin
 
   // Convertendo para tipo específico
   Safe := &Try(function: TValue
-    begin
-      Result := TValue.From(123);
-    end)
-    .&End;
+               begin
+                 Result := TValue.From(123);
+               end)
+         .&End;
   Writeln('Valor como Integer: ', Safe.AsType<Integer>); // Saída: Valor como Integer: 123
 end;
 ```
