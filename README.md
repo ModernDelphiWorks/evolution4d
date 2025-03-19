@@ -78,7 +78,6 @@ begin
     end)); // Saída: 150
 end;
 ```
-
 ## ecl.tuple - Tuplas Posicionais e Nomeadas
 
 ### Descrição
@@ -135,7 +134,7 @@ begin
   if NamedTuple.TryGet<Integer>('idade', Age) then
     Writeln('Idade recuperada: ', Age); // Saída: Idade recuperada: 30
 end;
-
+```
 ## ecl.objects - Fábrica de Objetos e Ponteiros Inteligentes
 
 ### Descrição
@@ -219,7 +218,7 @@ begin
     end);
   Writeln('Depois: ', MutableRef.AsRef.Value); // Saída: Depois: 200
 end;
-
+```
 ## ecl.threading - Programação Assíncrona Simplificada
 
 ### Descrição
@@ -281,7 +280,7 @@ begin
       Result.SetOk(True);
     end);
 end;
-
+```
 ## ecl.stream - Leitura Avançada de Streams
 
 ### Descrição
@@ -344,7 +343,7 @@ begin
   // Lendo como string final
   Writeln('Conteúdo final: ', Reader.AsString);
 end;
-
+```
 ## ecl.arrow.fun - Ferramentas Funcionais para Valores e Variáveis
 
 ### Descrição
@@ -393,7 +392,7 @@ begin
   MultiProc(TValue.Empty);
   Writeln('String: ', StrVar, ', Integer: ', IntVar); // Saída: String: Multi, Integer: 100
 end;
-
+```
 ## ecl.coroutine - Sistema de Corrotinas
 
 ### Descrição
@@ -461,7 +460,7 @@ begin
 
   Writeln('Valor final do Counter: ', Counter);
 end;
-
+```
 ## ecl.currying - Programação Funcional Avançada
 
 ### Descrição
@@ -526,7 +525,7 @@ begin
   var Num := TNumericInteger.Create(10);
   Writeln(Num.Add(5).ToString); // Saída: 15
 end;
-
+```
 ## ecl.dictionary - Dicionário Avançado com Funcionalidades Estendidas
 
 ### Descrição
@@ -594,7 +593,7 @@ begin
     Dict.Free;
   end;
 end;
-
+```
 ## ecl.directory - Manipulação Avançada de Diretórios
 
 ### Descrição
@@ -646,7 +645,7 @@ begin
   Writeln('Entradas com "test": ', Entries.ToString);
   // Saída exemplo: [C:\Example\testfolder, C:\Example\testfile.txt]
 end;
-
+```
 ## ecl.dot.env - Gerenciamento Avançado de Variáveis de Ambiente
 
 ### Descrição
@@ -702,7 +701,7 @@ begin
     Env.Free;
   end;
 end;
-
+```
 ## ecl.list - Lista Avançada com Funcionalidades Estendidas
 
 ### Descrição
@@ -766,7 +765,7 @@ begin
     List.Free;
   end;
 end;
-
+```
 ## ecl.map - Mapa Genérico Personalizado
 
 ### Descrição
@@ -825,7 +824,7 @@ begin
   // Convertendo para JSON
   Writeln('JSON: ', Map.ToJson); // Saída: JSON: {"apple": "5", "banana": "3", "cherry": "8"}
 end;
-
+```
 ## ecl.match - Correspondência de Padrões Avançada
 
 ### Descrição
@@ -874,7 +873,7 @@ begin
        .Execute;
   // Saída: Matches regex
 end;
-
+```
 ## ecl.option - Manipulação Segura de Valores Opcionais
 
 ### Descrição
@@ -929,7 +928,7 @@ begin
       Writeln('Erro: ', E.Message); // Saída: Erro: Valor esperado não encontrado
   end;
 end;
-
+```
 ## ecl.result.pair - Manipulação Segura de Resultados com Sucesso ou Falha
 
 ### Descrição
@@ -985,7 +984,7 @@ begin
       Writeln('Erro: ', E.Message); // Saída: Erro: A generic exception occurred with value Erro ao processar
   end;
 end;
-
+```
 ## ecl.safetry - Execução Segura de Blocos Try-Except-Finally
 
 ### Descrição
@@ -1048,7 +1047,7 @@ begin
     .&End;
   Writeln('Valor como Integer: ', Safe.AsType<Integer>); // Saída: Valor como Integer: 123
 end;
-
+```
 ## ecl.std - Utilitários Padrão e Estruturas Fundamentais
 
 ### Descrição
@@ -1104,7 +1103,7 @@ begin
   Writeln('Min: ', TStd.Min(5, 10)); // Saída: Min: 5
   Writeln('ISO Date: ', TStd.DateTimeToIso8601(Now, True)); // Saída exemplo: ISO Date: 2025-03-19T14:30:00
 end;
-
+```
 ## ecl.str - Extensões Funcionais para Tipos Básicos
 
 ### Descrição
@@ -1163,7 +1162,7 @@ begin
   Writeln('Formatted: ', Date.ToFormat('yyyy-mm-dd')); // Saída exemplo: Formatted: 2025-03-19
   Writeln('Past: ', Date.AddDays(-1).IsPast); // Saída: Past: True
 end;
-
+```
 <!-- Contribuição -->
 ## ⛏️ Contribuição
 
