@@ -1,0 +1,8 @@
+[SonarHost]
+ProjectKey=eclbr
+Url=127.0.0.1:9000
+DownloadPlugin=1
+[Analysis]
+BaseDir=D:\PROJETOS-Brasil\ECLBr\Source
+ReadProperties=1
+ConnectedMode=1

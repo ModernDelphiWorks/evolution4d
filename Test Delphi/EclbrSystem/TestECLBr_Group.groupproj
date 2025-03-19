@@ -1,0 +1,240 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EF844C65-F513-421D-B3D0-B4D5EABA97EC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PTestDictionary.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestMatch.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestTuple.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\EclbrResultPair\PTestResultPair.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestVector.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestMap.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestList.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestStream.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestDirectory.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestObjects.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestThreading.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestStd.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestStr.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestSafeTry.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestCurrying.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestOption.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PTestDotEnv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\Examples\CurryingDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PTestDictionary">
+        <MSBuild Projects="PTestDictionary.dproj"/>
+    </Target>
+    <Target Name="PTestDictionary:Clean">
+        <MSBuild Projects="PTestDictionary.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestDictionary:Make">
+        <MSBuild Projects="PTestDictionary.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestMatch">
+        <MSBuild Projects="PTestMatch.dproj"/>
+    </Target>
+    <Target Name="PTestMatch:Clean">
+        <MSBuild Projects="PTestMatch.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestMatch:Make">
+        <MSBuild Projects="PTestMatch.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestTuple">
+        <MSBuild Projects="PTestTuple.dproj"/>
+    </Target>
+    <Target Name="PTestTuple:Clean">
+        <MSBuild Projects="PTestTuple.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestTuple:Make">
+        <MSBuild Projects="PTestTuple.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestResultPair">
+        <MSBuild Projects="..\EclbrResultPair\PTestResultPair.dproj"/>
+    </Target>
+    <Target Name="PTestResultPair:Clean">
+        <MSBuild Projects="..\EclbrResultPair\PTestResultPair.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestResultPair:Make">
+        <MSBuild Projects="..\EclbrResultPair\PTestResultPair.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestVector">
+        <MSBuild Projects="PTestVector.dproj"/>
+    </Target>
+    <Target Name="PTestVector:Clean">
+        <MSBuild Projects="PTestVector.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestVector:Make">
+        <MSBuild Projects="PTestVector.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestMap">
+        <MSBuild Projects="PTestMap.dproj"/>
+    </Target>
+    <Target Name="PTestMap:Clean">
+        <MSBuild Projects="PTestMap.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestMap:Make">
+        <MSBuild Projects="PTestMap.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestList">
+        <MSBuild Projects="PTestList.dproj"/>
+    </Target>
+    <Target Name="PTestList:Clean">
+        <MSBuild Projects="PTestList.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestList:Make">
+        <MSBuild Projects="PTestList.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestStream">
+        <MSBuild Projects="PTestStream.dproj"/>
+    </Target>
+    <Target Name="PTestStream:Clean">
+        <MSBuild Projects="PTestStream.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestStream:Make">
+        <MSBuild Projects="PTestStream.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestDirectory">
+        <MSBuild Projects="PTestDirectory.dproj"/>
+    </Target>
+    <Target Name="PTestDirectory:Clean">
+        <MSBuild Projects="PTestDirectory.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestDirectory:Make">
+        <MSBuild Projects="PTestDirectory.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestObjects">
+        <MSBuild Projects="PTestObjects.dproj"/>
+    </Target>
+    <Target Name="PTestObjects:Clean">
+        <MSBuild Projects="PTestObjects.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestObjects:Make">
+        <MSBuild Projects="PTestObjects.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestThreading">
+        <MSBuild Projects="PTestThreading.dproj"/>
+    </Target>
+    <Target Name="PTestThreading:Clean">
+        <MSBuild Projects="PTestThreading.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestThreading:Make">
+        <MSBuild Projects="PTestThreading.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestStd">
+        <MSBuild Projects="PTestStd.dproj"/>
+    </Target>
+    <Target Name="PTestStd:Clean">
+        <MSBuild Projects="PTestStd.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestStd:Make">
+        <MSBuild Projects="PTestStd.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestStr">
+        <MSBuild Projects="PTestStr.dproj"/>
+    </Target>
+    <Target Name="PTestStr:Clean">
+        <MSBuild Projects="PTestStr.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestStr:Make">
+        <MSBuild Projects="PTestStr.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestSafeTry">
+        <MSBuild Projects="PTestSafeTry.dproj"/>
+    </Target>
+    <Target Name="PTestSafeTry:Clean">
+        <MSBuild Projects="PTestSafeTry.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestSafeTry:Make">
+        <MSBuild Projects="PTestSafeTry.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestCurrying">
+        <MSBuild Projects="PTestCurrying.dproj"/>
+    </Target>
+    <Target Name="PTestCurrying:Clean">
+        <MSBuild Projects="PTestCurrying.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestCurrying:Make">
+        <MSBuild Projects="PTestCurrying.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestOption">
+        <MSBuild Projects="PTestOption.dproj"/>
+    </Target>
+    <Target Name="PTestOption:Clean">
+        <MSBuild Projects="PTestOption.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestOption:Make">
+        <MSBuild Projects="PTestOption.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PTestDotEnv">
+        <MSBuild Projects="PTestDotEnv.dproj"/>
+    </Target>
+    <Target Name="PTestDotEnv:Clean">
+        <MSBuild Projects="PTestDotEnv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PTestDotEnv:Make">
+        <MSBuild Projects="PTestDotEnv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CurryingDemo">
+        <MSBuild Projects="..\..\Examples\CurryingDemo.dproj"/>
+    </Target>
+    <Target Name="CurryingDemo:Clean">
+        <MSBuild Projects="..\..\Examples\CurryingDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CurryingDemo:Make">
+        <MSBuild Projects="..\..\Examples\CurryingDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PTestDictionary;PTestMatch;PTestTuple;PTestResultPair;PTestVector;PTestMap;PTestList;PTestStream;PTestDirectory;PTestObjects;PTestThreading;PTestStd;PTestStr;PTestSafeTry;PTestCurrying;PTestOption;PTestDotEnv;CurryingDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PTestDictionary:Clean;PTestMatch:Clean;PTestTuple:Clean;PTestResultPair:Clean;PTestVector:Clean;PTestMap:Clean;PTestList:Clean;PTestStream:Clean;PTestDirectory:Clean;PTestObjects:Clean;PTestThreading:Clean;PTestStd:Clean;PTestStr:Clean;PTestSafeTry:Clean;PTestCurrying:Clean;PTestOption:Clean;PTestDotEnv:Clean;CurryingDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PTestDictionary:Make;PTestMatch:Make;PTestTuple:Make;PTestResultPair:Make;PTestVector:Make;PTestMap:Make;PTestList:Make;PTestStream:Make;PTestDirectory:Make;PTestObjects:Make;PTestThreading:Make;PTestStd:Make;PTestStr:Make;PTestSafeTry:Make;PTestCurrying:Make;PTestOption:Make;PTestDotEnv:Make;CurryingDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
