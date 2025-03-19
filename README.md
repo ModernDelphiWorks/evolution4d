@@ -1,147 +1,56 @@
-ECL - Evolution Core Library for Delphi
-Bem-vindo à Evolution Core Library (ECL), uma biblioteca moderna e poderosa para Delphi que traz funcionalidades avançadas inspiradas em paradigmas de programação contemporâneos, como programação funcional, gerenciamento seguro de recursos e operações assíncronas. Desenvolvida por Isaque Pinheiro, a ECL é projetada para aumentar a produtividade e oferecer ferramentas robustas para desenvolvedores Delphi.
+# ECLBr
 
-Visão Geral
-A ECL é uma coleção de unidades que fornecem estruturas de dados genéricas, utilitários de manipulação de tipos, suporte a expressões regulares, operações assíncronas, e muito mais. Licenciada sob a GNU Lesser General Public License v3.0 (LGPL-3.0), ela é gratuita para uso em projetos comerciais e de código aberto, desde que os termos da licença sejam respeitados.
+A linguagem de programação Delphi, conhecida por sua poderosa capacidade de desenvolvimento de aplicativos Windows e uma ampla base de código legado, é altamente valorizada pelos desenvolvedores. No entanto, com a evolução do cenário de desenvolvimento de software, surgem novos desafios e demandas. É nesse contexto que a biblioteca "ECLBr" (Essential Core Library for Delphi) entra em cena, oferecendo aos desenvolvedores recursos inspirados em linguagens modernas e padrões de programação avançados.
 
-Principais Recursos
-Estruturas de Dados Genéricas: Inclui TVector<T> para arrays dinâmicos e TTuple<K> para tuplas baseadas em chave-valor.
-Programação Funcional: Suporte a métodos como Map, Filter, Reduce, e Comprehend em várias estruturas.
-Gerenciamento Seguro de Recursos: Uso de TSmartPtr<T> para gerenciamento automático de memória e TSafeTry para tratamento seguro de exceções.
-Operações Assíncronas: TAsync e TFuture para tarefas assíncronas modernas.
-Manipulação de Streams: TStreamReaderEx com funcionalidades avançadas de transformação e filtragem.
-Utilitários Diversos: Expressões regulares (TRegExLib), extensões de tipos básicos (TStringHelperEx, TIntegerHelperEx, etc.), e mais.
-Estrutura do Projeto
-A biblioteca é composta por várias unidades independentes, cada uma com um propósito específico:
+## O Significado de ECLBr
+O nome "ECLBr" é uma abreviação de "Essential Core Library for Delphi". Essa biblioteca foi criada com o objetivo de fornecer um conjunto essencial de recursos para os desenvolvedores Delphi, permitindo que eles aprimorem seus projetos com conceitos modernos de programação e padrões que são comuns em outras linguagens.
+Os Recursos da Biblioteca
+A ECLBr introduz uma série de classes e extensões de classes que ajudam a trazer funcionalidades e paradigmas de programação modernos para o Delphi. A seguir, apresentamos alguns dos principais componentes da biblioteca:
 
-Unidade	Descrição
-ecl.objects	Ferramentas para criação dinâmica de objetos via RTTI e smart pointers.
-ecl.result.pair	Implementação de TResultPair<S, F> para resultados sucesso/falha.
-ecl.option	TOption<T> para valores opcionais (similar ao Option do Rust).
-ecl.regexlib	Utilitários de expressões regulares com validações comuns (e.g., CPF, URL).
-ecl.std	Funções utilitárias padrão, como manipulação de arrays e streams.
-ecl.str	Extensões funcionais para tipos básicos (String, Integer, Boolean, etc.).
-ecl.safetry	TSafeTry para blocos try-except-finally seguros com resultados tipados.
-ecl.tuple	Tuplas posicionais (TTuple) e baseadas em dicionário (TTuple<K>).
-ecl.threading	Suporte a operações assíncronas com TAsync e TFuture.
-ecl.stream	TStreamReaderEx para manipulação avançada de streams.
-ecl.vector	TVector<T> para arrays dinâmicos com operações funcionais.
-Requisitos
-Delphi: Versão XE7 ou superior (recomenda-se a versão mais recente para suporte completo a genéricos e RTTI).
-Dependências: Nenhuma dependência externa; utiliza apenas bibliotecas padrão do Delphi.
-Instalação
-Clone o Repositório:
-bash
+## Novas Classes
+### 1. TMatch<T>
+A classe TMatch<T> traz o poderoso conceito de Pattern Matching para o Delphi. Com ela, os desenvolvedores podem realizar casamento de padrões de maneira elegante e eficiente. O Pattern Matching é uma técnica poderosa que permite que o código seja mais conciso e legível, simplificando condicionais complexos.
 
-Collapse
+### 2. TTuple<K>
+TTuple<K> é uma implementação de tupla imutável que permite armazenar pares de chave-valor. Isso é especialmente útil quando se lida com dados estruturados ou quando é necessário retornar múltiplos valores de uma função.
 
-Wrap
+### 3. TResultPair<S, F>
+Esta classe oferece a capacidade de representar um par de resultados, onde o primeiro resultado (S) é considerado bem-sucedido e o segundo resultado (F) é considerado falha. Essa abordagem é semelhante ao conceito de "Either" em linguagens funcionais.
 
-Copy
-git clone https://github.com/IsaquePinheiro/ecl.git
-Adicione ao Projeto:
-Copie os arquivos .pas para o diretório do seu projeto ou para uma pasta acessível.
-Adicione o caminho da biblioteca ao seu projeto no Delphi IDE (Project > Options > Delphi Compiler > Search Path).
-Inclua as Unidades: Adicione as unidades necessárias ao seu código com uses, por exemplo:
-delphi
+### 4. TVector<T>
+TVector<T> é uma estrutura de dados que representa um vetor de elementos do tipo T. Ela permite realizar operações como mapeamento, filtragem e iteração de maneira funcional e eficiente.
 
-Collapse
+### 5. TMap<K, V>
+TMap<K, V> é uma implementação de um mapa (dicionário) associativo. Ele oferece uma maneira eficiente de associar chaves (K) a valores (V) e é amplamente utilizado em muitos cenários de desenvolvimento.
 
-Wrap
+### 6. TIfThen<T>
+TIfThen<T> introduz uma estrutura condicional if-then que simplifica a lógica condicional em Delphi. Isso torna o código mais legível e expressivo, facilitando o tratamento de múltiplas condições.
 
-Copy
-uses
-  ecl.vector, ecl.stream, ecl.safetry;
-Exemplos de Uso
-1. Trabalhando com TVector<T>
-delphi
+## Extensões de Classes Existentes
 
-Collapse
+### 1. TListEx<T>
+Esta extensão estende a classe TList<T> para fornecer funcionalidades adicionais, como mapeamento, filtragem e iteração funcional. Isso ajuda a tornar o código que utiliza listas mais expressivo e simplificado.
 
-Wrap
+### 2. TDicEx<K, V>
+TDicEx<K, V> estende a classe TDictionary<K, V> para oferecer funcionalidades avançadas de mapeamento e manipulação de dicionários. Isso é particularmente útil quando se lida com coleções de pares de chave-valor.
 
-Copy
-var
-  LVector: TVector<Integer>;
-  LFiltered: TVector<Integer>;
-begin
-  LVector := TVector<Integer>.Create([1, 2, 3, 4, 5]);
-  LVector.Add(6);
+### 3. TStreamReaderHelper
+Esta extensão simplifica a leitura de dados de arquivos de texto usando a classe TStreamReader. Isso torna a manipulação de arquivos de texto mais eficiente e conveniente.
 
-  // Filtrar números pares
-  LFiltered := LVector.Filter(function(const AValue: Integer): Boolean
-    begin
-      Result := AValue mod 2 = 0;
-    end);
+### Recursos Funcionais
+Além das classes mencionadas, a biblioteca ECLBr traz conceitos de programação funcional para Delphi. Os desenvolvedores podem aproveitar recursos como Map(), Filter(), ForEach() e outros para trabalhar com suas coleções de dados de maneira mais declarativa e eficiente. Isso não apenas simplifica o código, mas também melhora a legibilidade e a manutenção.
 
-  WriteLn(LFiltered.ToString); // Saída: [2, 4, 6]
-end;
-2. Usando TSafeTry para Tratamento Seguro de Exceções
-delphi
+### Benefícios da ECLBr
+A ECLBr oferece inúmeros benefícios aos desenvolvedores Delphi:
 
-Collapse
+1. Melhor Legibilidade do Código: Os recursos de programação funcional e o Pattern Matching tornam o código mais claro e fácil de entender.
+2. Redução de Complexidade: A biblioteca simplifica a lógica condicional e as operações em coleções, reduzindo a complexidade do código.
+3. Maior Produtividade: Recursos como Map(), Filter(), e ForEach() permitem que os desenvolvedores realizem tarefas comuns de maneira mais rápida e eficiente.
+4. Compatibilidade com Padrões Modernos: A ECLBr permite que os desenvolvedores Delphi adotem padrões e conceitos modernos que são amplamente aceitos na comunidade de desenvolvimento de software.
+5. Reutilização de Código: As extensões de classes existentes facilitam a reutilização de código e a aplicação de padrões comuns.
+6. Resolução de Problemas Complexos: O Pattern Matching pode ser usado para resolver problemas complexos de maneira mais elegante e simples.
+7. Flexibilidade: A ECLBr oferece flexibilidade ao permitir que os desenvolvedores trabalhem com tipos de dados variados, como tuplas e mapas.
 
-Wrap
+### Conclusão
 
-Copy
-var
-  LResult: TSafeResult;
-begin
-  LResult := TSafeTry.Try(function: TValue
-    begin
-      Result := TValue.From<Integer>(StrToInt('123abc')); // Gera exceção
-    end)
-    .Except(procedure(AException: Exception)
-      begin
-        WriteLn('Erro: ', AException.Message);
-      end)
-    .Finally(procedure
-      begin
-        WriteLn('Finalizando...');
-      end)
-    .End;
-
-  if LResult.IsOk then
-    WriteLn('Sucesso: ', LResult.GetValue.AsInteger)
-  else
-    WriteLn('Falha: ', LResult.ExceptionMessage);
-end;
-3. Processamento de Streams com TStreamReaderEx
-delphi
-
-Collapse
-
-Wrap
-
-Copy
-var
-  LStream: TStreamReaderEx;
-begin
-  LStream := TStreamReaderEx.New('example.txt');
-  LStream
-    .Filter(function(const ALine: String): Boolean
-      begin
-        Result := ContainsText(ALine, 'error');
-      end)
-    .Map(function(const ALine: String): String
-      begin
-        Result := UpperCase(ALine);
-      end);
-
-  WriteLn(LStream.AsString);
-end;
-Contribuição
-Contribuições são bem-vindas! Para contribuir:
-
-Faça um fork do repositório.
-Crie uma branch para sua feature ou correção (git checkout -b feature/nova-funcionalidade).
-Envie um pull request com uma descrição clara das mudanças.
-Por favor, siga as diretrizes de código do Delphi e inclua testes quando possível.
-
-Licença
-A ECL é distribuída sob a GNU Lesser General Public License v3.0 (LGPL-3.0). Veja o arquivo LICENSE para mais detalhes.
-
-Contato
-Autor: Isaque Pinheiro
-Email: isaquepsp@gmail.com
-Discord: https://discord.gg/T2zJC8zX
+A biblioteca ECLBr é uma adição valiosa para o ecossistema Delphi. Ela capacita os desenvolvedores a tirar proveito de recursos modernos e paradigmas de programação avançados, tornando o desenvolvimento de aplicativos Delphi mais eficiente e expressivo. Com suas novas classes e extensões de classes existentes, a ECLBr traz o poder da programação funcional, o conceito de Pattern Matching e a flexibilidade de tipos variados para o Delphi, permitindo que os desenvolvedores alcancem um novo nível de produtividade e clareza em seus projetos.
