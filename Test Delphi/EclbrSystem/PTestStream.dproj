@@ -114,6 +114,7 @@
         <DCCReference Include="..\..\Source\ecl.arrow.fun.pas"/>
         <DCCReference Include="..\..\Source\ecl.objects.pas"/>
         <DCCReference Include="..\..\Source\ecl.std.pas"/>
+        <DCCReference Include="..\..\Source\ecl.threading.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

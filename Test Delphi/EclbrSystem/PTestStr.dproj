@@ -112,6 +112,7 @@
         <DCCReference Include="..\..\Source\ecl.str.pas"/>
         <DCCReference Include="..\..\Source\ecl.vector.pas"/>
         <DCCReference Include="..\..\Source\ecl.std.pas"/>
+        <DCCReference Include="..\..\Source\ecl.map.pas"/>
         <None Include="ModelSupport_PTestStr\PTestStr\default.txaPackage"/>
         <None Include="ModelSupport_PTestStr\default.txaPackage"/>
         <None Include="ModelSupport_PTestStr\PTestStr\default.txvpck"/>

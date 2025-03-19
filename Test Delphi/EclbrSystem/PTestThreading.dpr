@@ -18,7 +18,8 @@ uses
   DUnitX.TestFramework,
   UTestEcl.Threading in 'UTestEcl.Threading.pas',
   ecl.threading in '..\..\Source\ecl.threading.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.map in '..\..\Source\ecl.map.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

@@ -33,6 +33,7 @@ uses
   Math,
   Classes,
   SysUtils,
+  TypInfo,
   Generics.Collections,
   Generics.Defaults,
   SyncObjs,

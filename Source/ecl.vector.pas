@@ -144,19 +144,6 @@ type
     ///   The item of type T at the specified index.
     /// </returns>
     function _GetItem(LIndex: Integer): T;
-    /// <summary>
-    ///   Compares two values of a generic type for equality.
-    /// </summary>
-    /// <param name="ALeft">
-    ///   The first value to compare.
-    /// </param>
-    /// <param name="ARight">
-    ///   The second value to compare.
-    /// </param>
-    /// <returns>
-    ///   True if the values are equal; False otherwise.
-    /// </returns>
-    function _IsEquals<I>(const ALeft: I; ARight: I): Boolean;
   public
     /// <summary>
     ///   Implicitly converts a TVector to a TArray.
@@ -679,11 +666,6 @@ begin
   if (LIndex < 0) or (LIndex >= FCount) or (IsEmpty) then
     raise ERangeError.Create('Index out of range');
   Result := FItems[LIndex];
-end;
-
-function TVector<T>._IsEquals<I>(const ALeft: I; ARight: I): Boolean;
-begin
-  Result := TEqualityComparer<I>.Default.Equals(ALeft, ARight);
 end;
 
 procedure TVector<T>._SetItem(LIndex: Integer; const V: T);

@@ -77,10 +77,10 @@ type
         FItems: PArrayPair;
         FIndex: Integer;
         function _GetCurrent: TMapPair<K, V>;
-        function _IsEquals<T>(const ALeft: T; ARight: T): Boolean;
       protected
         function DoGetCurrent: TMapPair<K,V>; override;
         function DoMoveNext: Boolean; override;
+        function _IsEquals<T>(const ALeft: T; ARight: T): Boolean;
       public
         constructor Create(const AItems: PArrayPair);
         destructor Destroy; override;
@@ -102,12 +102,6 @@ type
     /// <param name="AKey">The key to find or insert.</param>
     /// <param name="AHashCode">Optional precomputed hash code. If -1, computes the hash internally.</param>
     function _GetBucketIndex(const AKey: K; const AHashCode: Integer = -1): Integer;
-
-    /// <summary>
-    ///   Sets the length of the internal items array.
-    /// </summary>
-    /// <param name="ALength">The new length to set.</param>
-    procedure _SetNewLength(const ALength: Integer);
 
     /// <summary>
     ///   Counts the number of occupied slots in the map.
@@ -485,11 +479,6 @@ end;
 procedure TMap<K, V>.SetDefaultCapacity(const ADefault: Integer);
 begin
   FDefaultCapacity.DefaultCapacity := ADefault;
-end;
-
-procedure TMap<K, V>._SetNewLength(const ALength: Integer);
-begin
-  SetLength(FMapItems, ALength);
 end;
 
 procedure TMap<K, V>.AddRange(const ACollection: TMap<K, V>);

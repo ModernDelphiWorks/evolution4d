@@ -22,7 +22,8 @@ uses
   ecl.arrow.fun in '..\..\Source\ecl.arrow.fun.pas',
   ecl.regexlib in '..\..\Source\ecl.regexlib.pas',
   ecl.result.pair in '..\..\Source\ecl.result.pair.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.map in '..\..\Source\ecl.map.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

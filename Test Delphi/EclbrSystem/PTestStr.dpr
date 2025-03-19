@@ -19,7 +19,8 @@ uses
   UTestEcl.Str in 'UTestEcl.Str.pas',
   ecl.str in '..\..\Source\ecl.str.pas',
   ecl.vector in '..\..\Source\ecl.vector.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.map in '..\..\Source\ecl.map.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

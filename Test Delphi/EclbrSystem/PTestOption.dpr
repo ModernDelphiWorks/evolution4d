@@ -16,7 +16,8 @@ uses
   {$ENDIF }
   DUnitX.TestFramework,
   UTestEcl.Option in 'UTestEcl.Option.pas',
-  ecl.option in '..\..\Source\ecl.option.pas';
+  ecl.option in '..\..\Source\ecl.option.pas',
+  ecl.result.pair in '..\..\Source\ecl.result.pair.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

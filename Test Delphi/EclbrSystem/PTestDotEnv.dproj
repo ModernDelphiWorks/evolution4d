@@ -90,6 +90,8 @@
         <DCCReference Include="UTestEcl.DotEnv.pas"/>
         <DCCReference Include="..\..\Source\ecl.dot.env.pas"/>
         <DCCReference Include="..\..\Source\ecl.crypt.pas"/>
+        <DCCReference Include="..\..\Source\ecl.map.pas"/>
+        <DCCReference Include="..\..\Source\ecl.std.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -26,7 +26,7 @@
 
 unit ecl.objects;
 
-{$I ..\ecl.inc}
+{$I .\ecl.inc}
 
 interface
 

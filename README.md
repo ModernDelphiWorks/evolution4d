@@ -1,4 +1,4 @@
-# Evolution Core Library (ECL) para Delphi
+# ECL - Evolution Core Library para Delphi
 
 Bem-vindo à **Evolution Core Library (ECL)** — a solução que moderniza o Delphi e o coloca no mesmo patamar das linguagens mais avançadas de hoje, como Rust, Kotlin e Python. Se você é um desenvolvedor Delphi que ama a robustez da linguagem, mas sente falta de recursos contemporâneos como *pattern matching*, *null safety*, *async/await* ou programação funcional, o ECL é para você. Criado para preencher as lacunas do Delphi nativo, o ECL traz ferramentas poderosas que aumentam sua produtividade, reduzem erros e tornam seu código mais elegante e manutenível.
 
@@ -583,8 +583,8 @@ begin
       begin
         Result := Value mod 2 = 0;
       end);
-    Writeln('Pares: ', Groups[True].Count, ', Ímpares: ', Groups[False].Count);
-    // Saída: Pares: 1, Ímpares: 2
+    Writeln('Pares: ', Groups[True].Count, ', Ýmpares: ', Groups[False].Count);
+    // Saída: Pares: 1, Ýmpares: 2
 
     // Pegando os primeiros 2 itens
     var Taken := Dict.Take(2);
@@ -1170,7 +1170,7 @@ begin
 end;
 ```
 <!-- Contribuição -->
-## ⛏️ Contribuição
+## ⛝︝ Contribuição
 
 Eu adoraria receber contribuições para os meus projetos open source. Se você tiver alguma ideia ou correção de bug, sinta-se à vontade para abrir uma issue ou enviar uma pull request.
 
@@ -1185,7 +1185,7 @@ Para enviar uma pull request, siga estas etapas:
 5. Abra uma pull request
 
 <!-- Licença -->
-## ✍️ Licença
+## ✝︝ Licença
 
 [![License](https://img.shields.io/badge/Licence-LGPL--3.0-blue.svg)](https://opensource.org/licenses/LGPL-3.0)
 

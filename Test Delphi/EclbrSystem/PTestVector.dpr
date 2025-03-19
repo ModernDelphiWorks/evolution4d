@@ -19,7 +19,8 @@ uses
   UTestEcl.Vector in 'UTestEcl.Vector.pas',
   ecl.vector in '..\..\Source\ecl.vector.pas',
   ecl.arrow.fun in '..\..\Source\ecl.arrow.fun.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.map in '..\..\Source\ecl.map.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

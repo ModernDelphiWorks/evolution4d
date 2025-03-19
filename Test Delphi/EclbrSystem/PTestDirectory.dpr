@@ -18,7 +18,9 @@ uses
   DUnitX.TestFramework,
   UTestEcl.Directory in 'UTestEcl.Directory.pas',
   ecl.directory in '..\..\Source\ecl.directory.pas',
-  ecl.vector in '..\..\Source\ecl.vector.pas';
+  ecl.vector in '..\..\Source\ecl.vector.pas',
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.map in '..\..\Source\ecl.map.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

@@ -22,7 +22,8 @@ uses
   ecl.vector in '..\..\Source\ecl.vector.pas',
   ecl.arrow.fun in '..\..\Source\ecl.arrow.fun.pas',
   ecl.objects in '..\..\Source\ecl.objects.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  ecl.std in '..\..\Source\ecl.std.pas',
+  ecl.threading in '..\..\Source\ecl.threading.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

@@ -400,7 +400,7 @@ type
     ///   to be executed if the case's value matches the regular expression pattern.
     /// </returns>
     {$ENDREGION}
-    function CaseRegex(const AInput: String; const APattern: String): TMatch<T>; inline;
+    function CaseRegex(const AInput: String; const APattern: String): TMatch<T>;
 
     {$REGION 'Doc - Default'}
     /// <summary>

@@ -89,6 +89,7 @@
         </DelphiCompile>
         <DCCReference Include="UTestEcl.Option.pas"/>
         <DCCReference Include="..\..\Source\ecl.option.pas"/>
+        <DCCReference Include="..\..\Source\ecl.result.pair.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
