@@ -84,7 +84,6 @@ end;
 procedure TestTuple.TestStrIntTupla;
 var
   LTuplaStrInt: TTuple<String>;
-  LTupla: TTuple<String>;
   LValueInt: Integer;
 begin
   LTuplaStrInt := TTuple<String>.New(['A', 'B', 'C'], [1, 2, '3']);

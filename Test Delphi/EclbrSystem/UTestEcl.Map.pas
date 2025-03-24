@@ -62,6 +62,8 @@ type
     procedure TestInsertionsAndRemovalsStress;
     [Test]
     procedure TestHashCollisions;
+    [Test]
+    procedure TestCreateWithArrayOfArraysAndMatch;
   end;
 
 implementation
@@ -101,6 +103,36 @@ begin
   LArrayPair.AddOrUpdate('Key2', 50);
 
   Assert.AreEqual(50, LArrayPair.GetValue('Key2'));
+end;
+
+procedure TMapTest.TestCreateWithArrayOfArraysAndMatch;
+var
+  LMap: TMap<Integer, string>;
+  LResult: string;
+begin
+  // Arrange
+  LMap := TMap<Integer, string>.Create([
+    [1, 'Admin'],
+    [2, 'Editor'],
+    [3, 'Viewer']
+  ]);
+
+  // Act
+  // Teste 1: Chave existente
+  LResult := LMap.Match<string>(1, 'Unknown');
+
+  // Assert
+  Assert.AreEqual('Admin', LResult, 'Deveria retornar o valor associado à chave 1');
+
+  // Act
+  // Teste 2: Chave não existente
+  LResult := LMap.Match<string>(4, 'Unknown');
+
+  // Assert
+  Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');
+
+  // Teste 3: Verificar o número de elementos no mapa
+  Assert.AreEqual(3, LMap.Count, 'O mapa deveria conter 3 elementos após a inicialização');
 end;
 
 procedure TMapTest.TestEnumerator;

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="D:\PROJETOS-Brasil\ECL\Test Delphi\EclbrSystem\PTestDictionary.exe" total="34" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-03-24" time="0.034">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="PTestDictionary.exe" executed="true" result="Success" success="True" time="0.034" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="UTestEcl" executed="true" result="Success" success="True" time="0.034" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TDictionaryHelperTest" executed="True" result="Success" success="True" time="0.034" >
+                <results>
+                  <test-case name="TestAddRange" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestForEach" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestForEachIndexed" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestRotate" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestUnique" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSortedKeys" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestShuffleKeys" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMap" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFilter" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestReduce" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestGroupBy" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMapFilterMap" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestJoin" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestPartition" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTake" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSkip" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSlice" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestZip" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFlatMap" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+                  <test-case name="TestSkipMemoryLeak" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIntersect" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestExcept" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMaxKey" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMinKey" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMaxValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMinValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestDistinctBy" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFindAll" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTakeWhile" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSkipWhile" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestPartitionBy" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithDefaultValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithDefaultFunc" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCreateWithArrayOfArraysAndMatch" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

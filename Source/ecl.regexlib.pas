@@ -46,7 +46,7 @@ type
     /// <param name="AInput">The input String to match.</param>
     /// <param name="APattern">The regular expression pattern to match against.</param>
     /// <returns>True if the input String matches the pattern; otherwise, False.</returns>
-    class function IsMatch(const AInput: String; const APattern: String): Boolean; overload; static; inline;
+    class function IsMatch(const AInput: String; const APattern: String): Boolean; overload; static;
 
     /// <summary>
     ///   Determines whether the specified input String matches the specified regular expression pattern with the specified options.

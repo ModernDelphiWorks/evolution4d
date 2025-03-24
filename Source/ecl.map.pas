@@ -174,6 +174,12 @@ type
     constructor Create(const AKey: K; AValue: V); overload;
 
     /// <summary>
+    ///   Creates a TMap from an array of arrays, where each inner array contains a key and a value.
+    /// </summary>
+    /// <param name="APairs">The array of arrays, where each inner array has two elements: [key, value].</param>
+    constructor Create(const APairs: TArray<TArray<TValue>>); overload;
+
+    /// <summary>
     ///   Executes an action for each key-value pair in the map.
     /// </summary>
     /// <param name="AAction">The action to perform on each pair.</param>
@@ -398,6 +404,12 @@ type
     /// </summary>
     /// <returns>A string with unsorted key-value pairs.</returns>
     function ToStringRaw: String; inline;
+
+    // Método Match com valor padrão fixo
+    function Match<R>(const AKey: K; const ADefaultValue: R): R; overload;
+
+    // Método Match com função anônima para o valor padrão
+    function Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R; overload;
 
     property Items[const AKey: K]: V read GetValue write AddOrUpdate; default;
   end;
@@ -736,6 +748,31 @@ begin
   Result := _GetCount;
 end;
 
+constructor TMap<K, V>.Create(const APairs: TArray<TArray<TValue>>);
+var
+  LPair: TArray<TValue>;
+  LKey: K;
+  LValue: V;
+  LFor: Integer;
+begin
+  FCapacity := TDefaultCapacity.DefaultCapacity;
+  if Length(APairs) > FCapacity then
+    FCapacity := Length(APairs) * 2;
+  SetLength(FMapItems, FCapacity);
+  for LFor := 0 to FCapacity - 1 do
+    FMapItems[LFor].HashCode := -1;
+
+  for LPair in APairs do
+  begin
+    if Length(LPair) <> 2 then
+      raise Exception.Create('Each pair must contain exactly two elements: [key, value]');
+
+    LKey := LPair[0].AsType<K>;
+    LValue := LPair[1].AsType<V>;
+    Add(LKey, LValue);
+  end;
+end;
+
 function TMap<K, V>.Map(const AMappingFunc: TFunc<V, V>): TMap<K, V>;
 var
   LPair: TMapPair<K, V>;
@@ -761,6 +798,38 @@ begin
   Result := TMap<K, R>.Empty;
   for LPair in Self do
     Result.Add(LPair.Key, AMappingFunc(LPair.Key, LPair.Value));
+end;
+
+function TMap<K, V>.Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R;
+var
+  LValue: V;
+begin
+  if TryGetValue(AKey, LValue) then
+  begin
+    if not (TypeInfo(R) = TypeInfo(V)) then
+      raise Exception.Create('Return type R must be compatible with value type V');
+    Result := TValue.From<V>(LValue).AsType<R>;
+  end
+  else
+  begin
+    Result := ADefaultFunc();
+  end;
+end;
+
+function TMap<K, V>.Match<R>(const AKey: K; const ADefaultValue: R): R;
+var
+  LValue: V;
+begin
+  if TryGetValue(AKey, LValue) then
+  begin
+    if not (TypeInfo(R) = TypeInfo(V)) then
+      raise Exception.Create('Return type R must be compatible with value type V');
+    Result := TValue.From<V>(LValue).AsType<R>;
+  end
+  else
+  begin
+    Result := ADefaultValue;
+  end;
 end;
 
 function TMap<K, V>.Map<R>(const AMappingFunc: TFunc<V, R>): TMap<K, R>;

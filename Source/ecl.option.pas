@@ -49,8 +49,8 @@ type
     function GetValue: T;
   public
     type
-      TOptionAndThen<U> = reference to function(const Value: T): TOption<U>;
-      TOptionOrElse<T> = reference to function: TOption<T>;
+      TOptionAndThen<A> = reference to function(const Value: T): TOption<A>;
+      TOptionOrElse<O> = reference to function: TOption<O>;
   public
     /// <summary>
     /// Creates a TOption with a value.

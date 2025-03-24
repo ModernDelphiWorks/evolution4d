@@ -175,12 +175,12 @@ begin
     'nome 7 masculino' + sLineBreak +
     'nome 8 feminino' + sLineBreak
   );
+  LReader := TStreamReaderEx.New(LDataStream)
+                            .Filter(function(Line: String): Boolean
+                                    begin
+                                      Result := Pos('feminino', Line) > 0;
+                                    end);
   try
-    LReader := TStreamReaderEx.New(LDataStream)
-                              .Filter(function(Line: String): Boolean
-                                      begin
-                                        Result := Pos('feminino', Line) > 0;
-                                      end);
     Assert.AreEqual(
       'nome 2 feminino' + sLineBreak +
       'nome 4 feminino' + sLineBreak +

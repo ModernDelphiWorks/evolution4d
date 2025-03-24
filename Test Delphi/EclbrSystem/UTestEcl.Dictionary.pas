@@ -81,6 +81,12 @@ type
     procedure TestSkipWhile;
     [Test]
     procedure TestPartitionBy;
+    [Test]
+    procedure TestMatchWithDefaultValue;
+    [Test]
+    procedure TestMatchWithDefaultFunc;
+    [Test]
+    procedure TestCreateWithArrayOfArraysAndMatch;
   end;
 
 implementation
@@ -121,6 +127,39 @@ begin
   finally
     LSourceDict.Free;
     LTargetDict.Free;
+  end;
+end;
+
+procedure TDictionaryHelperTest.TestCreateWithArrayOfArraysAndMatch;
+var
+  LDict: TDictEx<Integer, string>;
+  LResult: string;
+begin
+  // Arrange
+  LDict := TDictEx<Integer, string>.Create([
+    [1, 'Admin'],
+    [2, 'Editor'],
+    [3, 'Viewer']
+  ]);
+  try
+    // Act
+    // Teste 1: Chave existente
+    LResult := LDict.Match<string>(1, 'Unknown');
+
+    // Assert
+    Assert.AreEqual('Admin', LResult, 'Deveria retornar o valor associado à chave 1');
+
+    // Act
+    // Teste 2: Chave não existente
+    LResult := LDict.Match<string>(4, 'Unknown');
+
+    // Assert
+    Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');
+
+    // Teste 3: Verificar o número de elementos no dicionário
+    Assert.AreEqual(3, LDict.Count, 'O dicionário deveria conter 3 elementos após a inicialização');
+  finally
+    LDict.Free;
   end;
 end;
 
@@ -656,6 +695,72 @@ begin
     Assert.AreEqual(LIlteredMap.ToString, '7=250');
   finally
     LMap.Free;
+  end;
+end;
+
+procedure TDictionaryHelperTest.TestMatchWithDefaultFunc;
+var
+  LDictionary: TDictEx<Integer, String>;
+  LResult: String;
+begin
+  // Arrange
+  LDictionary := TDictEx<Integer, String>.Create;
+  try
+    LDictionary.Add(1, 'One');
+    LDictionary.Add(2, 'Two');
+    LDictionary.Add(3, 'Three');
+
+    // Act
+    // Teste 1: Chave existente
+    LResult := LDictionary.Match<String>(2, function: String
+      begin
+        Result := 'Unknown';
+      end);
+
+    // Assert
+    Assert.AreEqual('Two', LResult, 'Deveria retornar o valor associado à chave 2');
+
+    // Act
+    // Teste 2: Chave não existente
+    LResult := LDictionary.Match<String>(5, function: String
+      begin
+        Result := 'Unknown';
+      end);
+
+    // Assert
+    Assert.AreEqual('Unknown', LResult, 'Deveria retornar o resultado da função padrão para a chave 5');
+  finally
+    LDictionary.Free;
+  end;
+end;
+
+procedure TDictionaryHelperTest.TestMatchWithDefaultValue;
+var
+  LDictionary: TDictEx<Integer, String>;
+  LResult: String;
+begin
+  // Arrange
+  LDictionary := TDictEx<Integer, String>.Create;
+  try
+    LDictionary.Add(1, 'One');
+    LDictionary.Add(2, 'Two');
+    LDictionary.Add(3, 'Three');
+
+    // Act
+    // Teste 1: Chave existente
+    LResult := LDictionary.Match<String>(1, 'Unknown');
+
+    // Assert
+    Assert.AreEqual('One', LResult, 'Deveria retornar o valor associado à chave 1');
+
+    // Act
+    // Teste 2: Chave não existente
+    LResult := LDictionary.Match<String>(4, 'Unknown');
+
+    // Assert
+    Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');
+  finally
+    LDictionary.Free;
   end;
 end;
 

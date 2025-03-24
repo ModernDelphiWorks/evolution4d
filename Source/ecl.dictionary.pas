@@ -45,6 +45,12 @@ type
       TItemPair = TPair<K, V>;
   public
     /// <summary>
+    ///   Creates a TMap from an array of arrays, where each inner array contains a key and a value.
+    /// </summary>
+    /// <param name="APairs">The array of arrays, where each inner array has two elements: [key, value].</param>
+    constructor Create(const APairs: TArray<TArray<TValue>>); overload;
+
+    /// <summary>
     ///   Adds the key-value pairs from another dictionary to this dictionary.
     /// </summary>
     /// <param name="ASource">The source dictionary containing key-value pairs to add.</param>
@@ -307,9 +313,35 @@ type
     /// </summary>
     /// <returns>A String representation of the key-value pairs in the dictionary.</returns>
     function ToString: String; override;
+
+    // Método Match com valor padrão fixo
+    function Match<R>(const AKey: K; const ADefaultValue: R): R; overload;
+
+    // Método Match com função anônima para o valor padrão
+    function Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R; overload;
+
   end;
 
 implementation
+
+constructor TDictEx<K, V>.Create(const APairs: TArray<TArray<TValue>>);
+var
+  LPair: TArray<TValue>;
+  LKey: K;
+  LValue: V;
+begin
+  inherited Create;
+
+  for LPair in APairs do
+  begin
+    if Length(LPair) <> 2 then
+      raise Exception.Create('Each pair must contain exactly two elements: [key, value]');
+
+    LKey := LPair[0].AsType<K>;
+    LValue := LPair[1].AsType<V>;
+    Add(LKey, LValue);
+  end;
+end;
 
 { TDictionaryHelper<K, V> }
 
@@ -540,6 +572,38 @@ begin
   Result := [];
   for LPair in Self do
     Result.Add(LPair.Key, AMappingFunc(LPair.Key, LPair.Value));
+end;
+
+function TDictEx<K, V>.Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R;
+var
+  LValue: V;
+begin
+  if TryGetValue(AKey, LValue) then
+  begin
+    if not (TypeInfo(R) = TypeInfo(V)) then
+      raise Exception.Create('Return type R must be compatible with value type V');
+    Result := TValue.From<V>(LValue).AsType<R>;
+  end
+  else
+  begin
+    Result := ADefaultFunc();
+  end;
+end;
+
+function TDictEx<K, V>.Match<R>(const AKey: K; const ADefaultValue: R): R;
+var
+  LValue: V;
+begin
+  if TryGetValue(AKey, LValue) then
+  begin
+    if not (TypeInfo(R) = TypeInfo(V)) then
+      raise Exception.Create('Return type R must be compatible with value type V');
+    Result := TValue.From<V>(LValue).AsType<R>;
+  end
+  else
+  begin
+    Result := ADefaultValue;
+  end;
 end;
 
 function TDictEx<K, V>.Map<R>(

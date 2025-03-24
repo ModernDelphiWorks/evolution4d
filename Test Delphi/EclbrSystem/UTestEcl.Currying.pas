@@ -545,7 +545,6 @@ end;
 procedure TTestCurrying.TestFilterEvenNumbers;
 var
   LInput, LOutput: TList<Integer>;
-  LFor: Integer;
 begin
   LInput := TList<Integer>.Create;
   try

@@ -37,8 +37,8 @@ type
     FVariables: TDictionary<String, TValue>;
     FUseSystemFallback: Boolean;
     function _GetValue(const AName: String): TValue;
+    function _ReplaceVars(const AValue: String): String;
     procedure _LoadFromFile(const AFileName: String);
-    function ReplaceVars(const AValue: String): String;
   public
     /// <summary>
     /// Creates a TDotEnv instance and optionally loads a .env file.
@@ -196,7 +196,7 @@ begin
         if LPosSeparator > 0 then
         begin
           LValue := Trim(Copy(LTrimmedLine, LPosSeparator + 1, Length(LTrimmedLine)));
-          LValue := ReplaceVars(LValue);
+          LValue := _ReplaceVars(LValue);
           FVariables.AddOrSetValue(
             Trim(Copy(LTrimmedLine, 1, LPosSeparator - 1)),
             TValue.From<String>(LValue)
@@ -209,7 +209,7 @@ begin
   end;
 end;
 
-function TDotEnv.ReplaceVars(const AValue: String): String;
+function TDotEnv._ReplaceVars(const AValue: String): String;
 var
   LResult: String;
   LStart, LEnd: Integer;
@@ -267,7 +267,7 @@ begin
   if AValue.IsType<String> then
   begin
     LStringValue := AValue.AsString;
-    LStringValue := ReplaceVars(LStringValue);  // Interpolação ao adicionar
+    LStringValue := _ReplaceVars(LStringValue);
     FVariables.AddOrSetValue(AName, TValue.From<String>(LStringValue));
   end
   else
