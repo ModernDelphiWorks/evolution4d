@@ -119,14 +119,14 @@ begin
 
   // Act
   // Teste 1: Chave existente
-  LResult := LMap.Match<string>(1, 'Unknown');
+  LResult := LMap.Match(1, 'Unknown');
 
   // Assert
   Assert.AreEqual('Admin', LResult, 'Deveria retornar o valor associado à chave 1');
 
   // Act
   // Teste 2: Chave não existente
-  LResult := LMap.Match<string>(4, 'Unknown');
+  LResult := LMap.Match(4, 'Unknown');
 
   // Assert
   Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');

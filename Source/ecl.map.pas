@@ -406,10 +406,10 @@ type
     function ToStringRaw: String; inline;
 
     // Método Match com valor padrão fixo
-    function Match<R>(const AKey: K; const ADefaultValue: R): R; overload;
+    function Match(const AKey: K; const ADefaultValue: V): V; overload;
 
     // Método Match com função anônima para o valor padrão
-    function Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R; overload;
+    function Match(const AKey: K; const ADefaultFunc: TFunc<V>): V; overload;
 
     property Items[const AKey: K]: V read GetValue write AddOrUpdate; default;
   end;
@@ -800,36 +800,24 @@ begin
     Result.Add(LPair.Key, AMappingFunc(LPair.Key, LPair.Value));
 end;
 
-function TMap<K, V>.Match<R>(const AKey: K; const ADefaultFunc: TFunc<R>): R;
+function TMap<K, V>.Match(const AKey: K; const ADefaultFunc: TFunc<V>): V;
 var
   LValue: V;
 begin
   if TryGetValue(AKey, LValue) then
-  begin
-    if not (TypeInfo(R) = TypeInfo(V)) then
-      raise Exception.Create('Return type R must be compatible with value type V');
-    Result := TValue.From<V>(LValue).AsType<R>;
-  end
+    Result := TValue.From<V>(LValue).AsType<V>
   else
-  begin
     Result := ADefaultFunc();
-  end;
 end;
 
-function TMap<K, V>.Match<R>(const AKey: K; const ADefaultValue: R): R;
+function TMap<K, V>.Match(const AKey: K; const ADefaultValue: V): V;
 var
   LValue: V;
 begin
   if TryGetValue(AKey, LValue) then
-  begin
-    if not (TypeInfo(R) = TypeInfo(V)) then
-      raise Exception.Create('Return type R must be compatible with value type V');
-    Result := TValue.From<V>(LValue).AsType<R>;
-  end
+    Result := TValue.From<V>(LValue).AsType<V>
   else
-  begin
     Result := ADefaultValue;
-  end;
 end;
 
 function TMap<K, V>.Map<R>(const AMappingFunc: TFunc<V, R>): TMap<K, R>;

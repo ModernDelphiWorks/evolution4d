@@ -144,14 +144,14 @@ begin
   try
     // Act
     // Teste 1: Chave existente
-    LResult := LDict.Match<string>(1, 'Unknown');
+    LResult := LDict.Match(1, 'Unknown');
 
     // Assert
     Assert.AreEqual('Admin', LResult, 'Deveria retornar o valor associado à chave 1');
 
     // Act
     // Teste 2: Chave não existente
-    LResult := LDict.Match<string>(4, 'Unknown');
+    LResult := LDict.Match(4, 'Unknown');
 
     // Assert
     Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');
@@ -712,7 +712,7 @@ begin
 
     // Act
     // Teste 1: Chave existente
-    LResult := LDictionary.Match<String>(2, function: String
+    LResult := LDictionary.Match(2, function: String
       begin
         Result := 'Unknown';
       end);
@@ -722,7 +722,7 @@ begin
 
     // Act
     // Teste 2: Chave não existente
-    LResult := LDictionary.Match<String>(5, function: String
+    LResult := LDictionary.Match(5, function: String
       begin
         Result := 'Unknown';
       end);
@@ -748,14 +748,14 @@ begin
 
     // Act
     // Teste 1: Chave existente
-    LResult := LDictionary.Match<String>(1, 'Unknown');
+    LResult := LDictionary.Match(1, 'Unknown');
 
     // Assert
     Assert.AreEqual('One', LResult, 'Deveria retornar o valor associado à chave 1');
 
     // Act
     // Teste 2: Chave não existente
-    LResult := LDictionary.Match<String>(4, 'Unknown');
+    LResult := LDictionary.Match(4, 'Unknown');
 
     // Assert
     Assert.AreEqual('Unknown', LResult, 'Deveria retornar o valor padrão para a chave 4');
