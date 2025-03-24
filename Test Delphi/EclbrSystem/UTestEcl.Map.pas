@@ -403,3 +403,4 @@ initialization
   TDUnitX.RegisterTestFixture(TMapTest);
 
 end.
+

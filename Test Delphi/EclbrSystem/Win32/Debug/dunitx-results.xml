@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="D:\PROJETOS-Brasil\ECL\Test Delphi\EclbrSystem\Win32\Debug\PTestOption.exe" total="50" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-03-24" time="4.353">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="PTestOption.exe" executed="true" result="Success" success="True" time="4.353" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="UTestEcl" executed="true" result="Success" success="True" time="4.352" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TestTOption" executed="True" result="Success" success="True" time="4.352" >
+                <results>
+                  <test-case name="TestSomeCreation" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestNoneCreation" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIsSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIsNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestUnwrapSuccess" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestUnwrapFailure" executed="True" result="Success" success="True" time="1.481" asserts="0" />
+                  <test-case name="TestUnwrapOr" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestUnwrapOrElse" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMapSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMapNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestValuePropertySuccess" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestValuePropertyFailure" executed="True" result="Success" success="True" time="0.450" asserts="0" />
+                  <test-case name="TestAndThenIntegerSome" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="TestAndThenIntegerNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestAndThenStringSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestAndThenStringNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestAndThenDoubleSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestAndThenDoubleNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOtherwiseSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOtherwiseNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOrElseSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOrElseNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIsSomeAndTrue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIsSomeAndFalse" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIsSomeAndNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestContainsSomeTrue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestContainsSomeFalse" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestContainsNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIfSomeSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestIfSomeNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTakeSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTakeNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestExpectSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestExpectNone" executed="True" result="Success" success="True" time="0.350" asserts="0" />
+                  <test-case name="TestUnwrapOrDefaultSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestUnwrapOrDefaultNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOkOrSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestOkOrNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFlattenSomeSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFlattenSomeNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFlattenNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestFlattenInvalidType" executed="True" result="Success" success="True" time="0.449" asserts="0" />
+                  <test-case name="TestReplaceSome" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="TestZipSomeSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestZipSomeNone" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestZipNoneSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithSome" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithNone" executed="True" result="Success" success="True" time="1.605" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

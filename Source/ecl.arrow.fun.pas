@@ -64,6 +64,15 @@ type
     class function Fn(const AValue: TValue): TProc; overload; static;
 
     /// <summary>
+    /// Creates a procedure that sets an internal string value.
+    /// </summary>
+    /// <param name="AValue">The string value to store internally.</param>
+    /// <returns>A procedure that assigns AValue to the internal FValue when executed.</returns>
+    class function Fn(const AValue: string): TProc; overload; static;
+    class function Fn(const AValue: Integer): TProc; overload; static;
+    class function Fn(const AValue: Boolean): TProc; overload; static;
+
+    /// <summary>
     ///   Creates a procedure that assigns multiple values to referenced variables based on a tuple.
     /// </summary>
     /// <remarks>
@@ -94,6 +103,17 @@ type
     class function Result(const AValue: TValue): TFunc<TValue>; static;
 
     /// <summary>
+    /// Creates a function that returns a string value.
+    /// </summary>
+    /// <param name="AValue">The string value to return.</param>
+    /// <returns>A function that returns the specified string value when executed.</returns>
+    class function Result(const AValue: string): TFunc<string>; overload; static;
+    class function Result(const AValue: Integer): TFunc<Integer>; overload; static;
+    class function Result(const AValue: Boolean): TFunc<Boolean>; overload; static;
+    class function Result(const AValue: Double): TFunc<Double>; overload; static;
+    class function Result(const AValue: TDateTime): TFunc<TDateTime>; overload; static;
+
+    /// <summary>
     ///   Retrieves the last stored value as a specified type.
     /// </summary>
     /// <remarks>
@@ -101,6 +121,12 @@ type
     /// </remarks>
     /// <returns>The internal FValue cast to type T.</returns>
     class function Value<T>: T; static;
+
+    /// <summary>
+    /// Retrieves the last stored value as a string.
+    /// </summary>
+    /// <returns>The internal FValue as a string.</returns>
+    class function AsString: string; static;
   end;
 
 implementation
@@ -144,6 +170,22 @@ begin
             end;
 end;
 
+class function TArrow.Result(const AValue: TDateTime): TFunc<TDateTime>;
+begin
+  Result := function: TDateTime
+            begin
+              Result := AValue;
+            end;
+end;
+
+class function TArrow.Result(const AValue: string): TFunc<string>;
+begin
+  Result := function: string
+            begin
+              Result := AValue;
+            end;
+end;
+
 class function TArrow.Value<T>: T;
 begin
   try
@@ -151,6 +193,16 @@ begin
   except
     on E: Exception do
       raise EArrowException.Create('Error in TArrow.Value: Cannot cast value to specified type. ' + E.Message);
+  end;
+end;
+
+class function TArrow.AsString: string;
+begin
+  try
+    Result := FValue.AsString;
+  except
+    on E: Exception do
+      raise EArrowException.Create('Error in TArrow.AsString: Cannot cast value to string. ' + E.Message);
   end;
 end;
 
@@ -222,6 +274,56 @@ begin
                   raise EArrowException.Create('Error in TArrow.Fn (array): ' + E.Message);
               end;
             end;
+end;
+
+class function TArrow.Fn(const AValue: Boolean): TProc;
+begin
+  Result := procedure
+            begin
+              FValue := TValue.From<Boolean>(AValue);
+            end;
+end;
+
+class function TArrow.Fn(const AValue: Integer): TProc;
+begin
+  Result := procedure
+            begin
+              FValue := TValue.From<Integer>(AValue);
+            end;
+end;
+
+class function TArrow.Fn(const AValue: string): TProc;
+begin
+  Result := procedure
+            begin
+              FValue := TValue.From<string>(AValue);
+            end;
+end;
+
+class function TArrow.Result(const AValue: Integer): TFunc<Integer>;
+begin
+  Result := function: Integer
+            begin
+              Result := AValue;
+            end;
+end;
+
+class function TArrow.Result(const AValue: Boolean): TFunc<Boolean>;
+begin
+  Result := function: Boolean
+            begin
+              Result := AValue;
+            end;
+
+end;
+
+class function TArrow.Result(const AValue: Double): TFunc<Double>;
+begin
+  Result := function: Double
+            begin
+              Result := AValue;
+            end;
+
 end;
 
 end.

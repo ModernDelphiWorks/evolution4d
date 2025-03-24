@@ -38,6 +38,26 @@ type
   TSomeProc<T> = reference to procedure(const AValue: T);
   TNoneProc = reference to procedure;
 
+  TSome = record
+  private
+    FValue: TValue;
+  public
+    constructor Create(const AValue: string);
+    class operator Implicit(const AValue: Integer): TSome;
+    class operator Implicit(const AValue: string): TSome;
+    class operator Implicit(const AValue: Boolean): TSome;
+    property Value: TValue read FValue;
+  end;
+
+  TNone = record
+  private
+    FMessage: TValue;
+  public
+    constructor Create(const AValue: string);
+    class operator Implicit(const AMessage: string): TNone;
+    property Message: TValue read FMessage;
+  end;
+
   TOption<T> = record
   private
     FHasValue: Boolean;
@@ -51,6 +71,8 @@ type
     type
       TOptionAndThen<A> = reference to function(const Value: T): TOption<A>;
       TOptionOrElse<O> = reference to function: TOption<O>;
+      TSomeFunc<T, R> = reference to function(const AValue: T): R;
+      TNoneFunc<R> = reference to function: R;
   public
     /// <summary>
     /// Creates a TOption with a value.
@@ -183,7 +205,15 @@ type
     /// </summary>
     /// <param name="ASomeProc">Action to run if Some.</param>
     /// <param name="ANoneProc">Action to run if None.</param>
-    procedure Match(const ASomeProc: TSomeProc<T>; const ANoneProc: TNoneProc);
+    procedure Match(const ASomeProc: TSomeProc<T>; const ANoneProc: TNoneProc); overload;
+
+    /// <summary>
+    /// Returns the value from ASome if Some, or the message from ANone if None.
+    /// </summary>
+    /// <param name="ASome">The Some case, containing the value to return.</param>
+    /// <param name="ANone">The None case, containing the message to return.</param>
+    /// <returns>The value from ASome if Some, or the message from ANone if None.</returns>
+    function Match<R>(const ASome: TSome; const ANone: TNone): R; overload;
 
     /// <summary>
     /// Executes an action if the TOption contains a value.
@@ -212,6 +242,8 @@ type
     /// <param name="ANewValue">The new value to set.</param>
     /// <returns>The previous TOption value.</returns>
     function Replace(var ASelf: TOption<T>; const ANewValue: T): TOption<T>;
+
+    function AsString: String; inline;
 
     /// <summary>
     /// Provides read-only access to the stored value.
@@ -247,6 +279,11 @@ end;
 function TOption<T>.IsSomeAnd(const APredicate: TFunc<T, Boolean>): Boolean;
 begin
   Result := FHasValue and APredicate(FValue);
+end;
+
+function TOption<T>.AsString: String;
+begin
+  Result := TValue.From<T>(FValue).ToString;
 end;
 
 function TOption<T>.Contains(const AValue: T; const AComparer: TFunc<T, T, Boolean>): Boolean;
@@ -378,6 +415,14 @@ begin
     ANoneProc();
 end;
 
+function TOption<T>.Match<R>(const ASome: TSome; const ANone: TNone): R;
+begin
+  if FHasValue then
+    Result := ASome.Value.AsType<R>
+  else
+    Result := ANone.Message.AsType<R>;
+end;
+
 procedure TOption<T>.IfSome(const AAction: TSomeProc<T>);
 begin
   if FHasValue then
@@ -415,6 +460,40 @@ function TOption<T>.Replace(var ASelf: TOption<T>; const ANewValue: T): TOption<
 begin
   Result := ASelf;
   ASelf := TOption<T>.Some(ANewValue);
+end;
+
+{ Some }
+
+class operator TSome.Implicit(const AValue: Integer): TSome;
+begin
+  Result.FValue := TValue.From<Integer>(AValue);
+end;
+
+class operator TSome.Implicit(const AValue: string): TSome;
+begin
+  Result.FValue := TValue.From<string>(AValue);
+end;
+
+constructor TSome.Create(const AValue: string);
+begin
+  FValue := AValue;
+end;
+
+class operator TSome.Implicit(const AValue: Boolean): TSome;
+begin
+  Result.FValue := TValue.From<Boolean>(AValue);
+end;
+
+constructor TNone.Create(const AValue: string);
+begin
+  FMessage := AValue;
+end;
+
+{ None }
+
+class operator TNone.Implicit(const AMessage: string): TNone;
+begin
+  Result.FMessage := AMessage;
 end;
 
 end.
