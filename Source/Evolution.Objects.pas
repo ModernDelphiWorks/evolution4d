@@ -1,32 +1,33 @@
 ﻿{
-                 ECL - Evolution Core Library for Delphi
+             Evolution4D: Modern Delphi Development Library
 
-                   Copyright (c) 2023, Isaque Pinheiro
-                          All rights reserved.
+                          Apache License
+                      Version 2.0, January 2004
+                   http://www.apache.org/licenses/
 
-                    GNU Lesser General Public License
-                      Versão 3, 29 de junho de 2007
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
 
-       Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-       A todos é permitido copiar e distribuir cópias deste documento de
-       licença, mas mudá-lo não é permitido.
+             http://www.apache.org/licenses/LICENSE-2.0
 
-       Esta versão da GNU Lesser General Public License incorpora
-       os termos e condições da versão 3 da GNU General Public License
-       Licença, complementado pelas permissões adicionais listadas no
-       arquivo LICENSE na pasta principal.
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
 }
 
 {
-  @abstract(ECL Library)
-  @created(23 Abr 2023)
+  @abstract(Evolution4D Library)
+  @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
 unit Evolution.Objects;
 
-{$I .\ecl.inc}
+{$I .\evolution4d.inc}
 
 interface
 

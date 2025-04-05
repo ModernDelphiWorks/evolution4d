@@ -1,35 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<test-results name="D:\PROJETOS-Brasil\ECL\Test Delphi\EclbrSystem\PTestMap.exe" total="23" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-03-24" time="0.010">
+<test-results name="D:\PROJETOS-Brasil\Evolution4D\Test Delphi\EclbrSystem\PTestSafeTry.exe" total="16" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-04-05" time="10.404">
   <culture-info current-culture="en" current-uiculture="en" />
-  <test-suite type="Assembly" name="PTestMap.exe" executed="true" result="Success" success="True" time="0.010" asserts="0">
+  <test-suite type="Assembly" name="PTestSafeTry.exe" executed="true" result="Success" success="True" time="10.404" asserts="0">
     <results>
-        <test-suite type="Namespace" name="UTestEcl" executed="true" result="Success" success="True" time="0.010" asserts="0" >
+        <test-suite type="Namespace" name="UTestEvolution" executed="true" result="Success" success="True" time="10.403" asserts="0" >
           <results>
-              <test-suite type="Fixture" name="TMapTest" executed="True" result="Success" success="True" time="0.010" >
+              <test-suite type="Fixture" name="TTestSafeTry" executed="True" result="Success" success="True" time="10.403" >
                 <results>
-                  <test-case name="TestAddOrUpdate" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestGetValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestRemove" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestLength" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestAddAndGet" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestLastItemEqualsLastAdded" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapMerge" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapFilter" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapToJson" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapCapacity" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapToString" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMapAddRange" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestEnumerator" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestEmptyMap" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestRemoveNonExistentKey" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryGetValue" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestGetCollisions" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestToStringRaw" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestToJsonRaw" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestMassInsertions" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestInsertionsAndRemovalsStress" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestHashCollisions" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestCreateWithArrayOfArraysAndMatch" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryExceptFinally_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryExceptFinally_Exception" executed="True" result="Success" success="True" time="3.102" asserts="0" />
+                  <test-case name="TestTryOnly_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryOnly_Exception" executed="True" result="Success" success="True" time="1.083" asserts="0" />
+                  <test-case name="TestTryFinally_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryFinally_Exception" executed="True" result="Success" success="True" time="0.966" asserts="0" />
+                  <test-case name="TestFinallyOnly" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestNoTry" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestEndWithoutException" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestEndWithException" executed="True" result="Success" success="True" time="2.405" asserts="0" />
+                  <test-case name="TestTryFuncInteger_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryFuncInteger_Exception" executed="True" result="Success" success="True" time="0.953" asserts="0" />
+                  <test-case name="TestTryFuncString_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryFuncString_Exception" executed="True" result="Success" success="True" time="0.893" asserts="0" />
+                  <test-case name="TestTryFuncDouble_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestTryFuncDouble_Exception" executed="True" result="Success" success="True" time="0.999" asserts="0" />
                 </results>
               </test-suite>
           </results>

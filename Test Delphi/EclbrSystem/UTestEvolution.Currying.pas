@@ -14,6 +14,7 @@ uses
   Evolution.Currying;
 
 type
+
   [TestFixture]
   TTestCurrying = class
   public
@@ -146,7 +147,9 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(10.0));
   Assert.AreEqual(Double(10.0), LCurrying.Value<Double>);
-  Writeln('TestConstructorAndValue: Valor inicial = ' + FloatToStr(LCurrying.Value<Double>));
+
+  Writeln('TestConstructorAndValue: Valor inicial = ' +
+    FloatToStr(LCurrying.Value<Double>));
 end;
 
 procedure TTestCurrying.TestSumOperationDouble;
@@ -155,10 +158,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(5.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin Result := A + B; end
-  )(3.0);
+    function(A, B: Double): Double
+    begin
+      Result := A + B;
+    end)(3.0);
+
   Assert.AreEqual(Double(8.0), LResult.Value<Double>);
-  Writeln('TestSumOperationDouble: 5 + 3 = ' + FloatToStr(LResult.Value<Double>));
+
+  Writeln('TestSumOperationDouble: 5 + 3 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestSumOperationInteger;
@@ -167,10 +175,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(5));
   LResult := LCurrying.Op<Integer>(
-    function(A, B: Integer): Integer begin Result := A + B; end
-  )(3);
+    function(A, B: Integer): Integer
+    begin
+      Result := A + B;
+    end)(3);
+
   Assert.AreEqual(8, LResult.Value<Integer>);
-  Writeln('TestSumOperationInteger: 5 + 3 = ' + IntToStr(LResult.Value<Integer>));
+
+  Writeln('TestSumOperationInteger: 5 + 3 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestSumOperationExtended;
@@ -179,10 +192,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Extended>(5.0));
   LResult := LCurrying.Op<Extended>(
-    function(A, B: Extended): Extended begin Result := A + B; end
-  )(3.0);
+    function(A, B: Extended): Extended
+    begin
+      Result := A + B;
+    end)(3.0);
+
   Assert.AreEqual(Extended(8.0), LResult.Value<Extended>);
-  Writeln('TestSumOperationExtended: 5 + 3 = ' + FloatToStr(LResult.Value<Extended>));
+
+  Writeln('TestSumOperationExtended: 5 + 3 = ' +
+    FloatToStr(LResult.Value<Extended>));
 end;
 
 procedure TTestCurrying.TestSubtractOperationDouble;
@@ -191,10 +209,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(10.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin Result := A - B; end
-  )(4.0);
+    function(A, B: Double): Double
+    begin
+      Result := A - B;
+    end)(4.0);
+
   Assert.AreEqual(Double(6.0), LResult.Value<Double>);
-  Writeln('TestSubtractOperationDouble: 10 - 4 = ' + FloatToStr(LResult.Value<Double>));
+
+  Writeln('TestSubtractOperationDouble: 10 - 4 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestSubtractOperationInteger;
@@ -203,10 +226,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(10));
   LResult := LCurrying.Op<Integer>(
-    function(A, B: Integer): Integer begin Result := A - B; end
-  )(4);
+    function(A, B: Integer): Integer
+    begin
+      Result := A - B;
+    end)(4);
+
   Assert.AreEqual(6, LResult.Value<Integer>);
-  Writeln('TestSubtractOperationInteger: 10 - 4 = ' + IntToStr(LResult.Value<Integer>));
+
+  Writeln('TestSubtractOperationInteger: 10 - 4 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestMultiplyOperationDouble;
@@ -215,10 +243,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(3.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin Result := A * B; end
-  )(2.0);
+    function(A, B: Double): Double
+    begin
+      Result := A * B;
+    end)(2.0);
+
   Assert.AreEqual(Double(6.0), LResult.Value<Double>);
-  Writeln('TestMultiplyOperationDouble: 3 * 2 = ' + FloatToStr(LResult.Value<Double>));
+
+  Writeln('TestMultiplyOperationDouble: 3 * 2 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestMultiplyOperationInteger;
@@ -227,10 +260,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(3));
   LResult := LCurrying.Op<Integer>(
-    function(A, B: Integer): Integer begin Result := A * B; end
-  )(2);
+    function(A, B: Integer): Integer
+    begin
+      Result := A * B;
+    end)(2);
+
   Assert.AreEqual(6, LResult.Value<Integer>);
-  Writeln('TestMultiplyOperationInteger: 3 * 2 = ' + IntToStr(LResult.Value<Integer>));
+
+  Writeln('TestMultiplyOperationInteger: 3 * 2 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestDivideOperationDouble;
@@ -239,10 +277,17 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(12.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin if B = 0 then raise EDivByZero.Create('Division by zero'); Result := A / B; end
-  )(2.0);
+    function(A, B: Double): Double
+    begin
+      if B = 0 then
+        raise EDivByZero.Create('Division by zero');
+      Result := A / B;
+    end)(2.0);
+
   Assert.AreEqual(Double(6.0), LResult.Value<Double>);
-  Writeln('TestDivideOperationDouble: 12 / 2 = ' + FloatToStr(LResult.Value<Double>));
+
+  Writeln('TestDivideOperationDouble: 12 / 2 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestDivideOperationInteger;
@@ -251,10 +296,17 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(12));
   LResult := LCurrying.Op<Integer>(
-    function(A, B: Integer): Integer begin if B = 0 then raise EDivByZero.Create('Division by zero'); Result := A div B; end
-  )(2);
+    function(A, B: Integer): Integer
+    begin
+      if B = 0 then
+        raise EDivByZero.Create('Division by zero');
+      Result := A div B;
+    end)(2);
+
   Assert.AreEqual(6, LResult.Value<Integer>);
-  Writeln('TestDivideOperationInteger: 12 / 2 = ' + IntToStr(LResult.Value<Integer>));
+
+  Writeln('TestDivideOperationInteger: 12 / 2 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestDivideByZeroDouble;
@@ -262,16 +314,19 @@ var
   LCurrying: TCurrying;
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(10.0));
+
   Assert.WillRaise(
     procedure
     begin
       LCurrying.Op<Double>(
-        function(A, B: Double): Double begin if B = 0 then raise EDivByZero.Create('Division by zero'); Result := A / B; end
-      )(0.0);
-    end,
-    EDivByZero,
-    'Deveria lançar exceção de divisão por zero'
-  );
+        function(A, B: Double): Double
+        begin
+          if B = 0 then
+            raise EDivByZero.Create('Division by zero');
+          Result := A / B;
+        end)(0.0);
+    end, EDivByZero, 'Deveria lançar exceção de divisão por zero');
+
   Writeln('TestDivideByZeroDouble: Exceção de divisão por zero verificada');
 end;
 
@@ -280,16 +335,19 @@ var
   LCurrying: TCurrying;
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(10));
+
   Assert.WillRaise(
     procedure
     begin
       LCurrying.Op<Integer>(
-        function(A, B: Integer): Integer begin if B = 0 then raise EDivByZero.Create('Division by zero'); Result := A div B; end
-      )(0);
-    end,
-    EDivByZero,
-    'Deveria lançar exceção de divisão por zero'
-  );
+        function(A, B: Integer): Integer
+        begin
+          if B = 0 then
+            raise EDivByZero.Create('Division by zero');
+          Result := A div B;
+        end)(0);
+    end, EDivByZero, 'Deveria lançar exceção de divisão por zero');
+
   Writeln('TestDivideByZeroInteger: Exceção de divisão por zero verificada');
 end;
 
@@ -299,10 +357,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(2.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin Result := Power(A, B); end
-  )(2.0);
+    function(A, B: Double): Double
+    begin
+      Result := Power(A, B);
+    end)(2.0);
+
   Assert.AreEqual(Double(4.0), LResult.Value<Double>);
-  Writeln('TestPowerOperationDouble: 2 ^ 2 = ' + FloatToStr(LResult.Value<Double>));
+
+  Writeln('TestPowerOperationDouble: 2 ^ 2 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestPowerOperationInteger;
@@ -324,10 +387,10 @@ begin
         Dec(LExponent);
       end;
       Result := LResult;
-    end
-  )(2);
+    end)(2);
   Assert.AreEqual(4, LResult.Value<Integer>);
-  Writeln('TestPowerOperationInteger: 2 ^ 2 = ' + IntToStr(LResult.Value<Integer>));
+  Writeln('TestPowerOperationInteger: 2 ^ 2 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestModulusOperationDouble;
@@ -336,10 +399,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Double>(10.0));
   LResult := LCurrying.Op<Double>(
-    function(A, B: Double): Double begin if B = 0 then raise EDivByZero.Create('Modulus by zero'); Result := Trunc(A) mod Trunc(B); end
-  )(3.0);
+    function(A, B: Double): Double
+    begin
+      if B = 0 then
+        raise EDivByZero.Create('Modulus by zero');
+      Result := Trunc(A) mod Trunc(B);
+    end)(3.0);
   Assert.AreEqual(Double(1.0), LResult.Value<Double>);
-  Writeln('TestModulusOperationDouble: 10 mod 3 = ' + FloatToStr(LResult.Value<Double>));
+  Writeln('TestModulusOperationDouble: 10 mod 3 = ' +
+    FloatToStr(LResult.Value<Double>));
 end;
 
 procedure TTestCurrying.TestModulusOperationInteger;
@@ -348,10 +416,15 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Integer>(10));
   LResult := LCurrying.Op<Integer>(
-    function(A, B: Integer): Integer begin if B = 0 then raise EDivByZero.Create('Modulus by zero'); Result := A mod B; end
-  )(3);
+    function(A, B: Integer): Integer
+    begin
+      if B = 0 then
+        raise EDivByZero.Create('Modulus by zero');
+      Result := A mod B;
+    end)(3);
   Assert.AreEqual(1, LResult.Value<Integer>);
-  Writeln('TestModulusOperationInteger: 10 mod 3 = ' + IntToStr(LResult.Value<Integer>));
+  Writeln('TestModulusOperationInteger: 10 mod 3 = ' +
+    IntToStr(LResult.Value<Integer>));
 end;
 
 procedure TTestCurrying.TestConcatOperation;
@@ -371,8 +444,14 @@ var
   LComposed: TFunc<Integer, Integer>;
   LResult: Integer;
 begin
-  LDouble := function(X: Integer): Integer begin Result := X * 2; end;
-  LAddOne := function(X: Integer): Integer begin Result := X + 1; end;
+  LDouble := function(X: Integer): Integer
+    begin
+      Result := X * 2;
+    end;
+  LAddOne := function(X: Integer): Integer
+    begin
+      Result := X + 1;
+    end;
   LComposed := TCurrying.Compose<Integer, Integer, Integer>(LDouble, LAddOne);
   LResult := LComposed(2);
   Assert.AreEqual(6, LResult);
@@ -386,13 +465,20 @@ var
   LTime: Int64;
 begin
   LStopwatch := TStopwatch.StartNew;
-  LPipeline := TCurrying.Pipe<Integer>(5)
-    .Apply<Integer>(function(X: Integer): Integer begin Result := X * 2; end)
-    .Thn<Integer>(function(X: Integer): Integer begin Result := X + 3; end);
+  LPipeline := TCurrying.Pipe<Integer>(5).Apply<Integer>(
+    function(X: Integer): Integer
+    begin
+      Result := X * 2;
+    end).Thn<Integer>(
+    function(X: Integer): Integer
+    begin
+      Result := X + 3;
+    end);
   LTime := LStopwatch.ElapsedMilliseconds;
   Assert.AreEqual(13, LPipeline.Value, 'Resultado deve ser 13');
   Assert.IsTrue(LTime < 50, 'Pipeline deve ser executado rapidamente (< 50ms)');
-  Writeln('TestPipeline: (5 * 2) + 3 = ' + IntToStr(LPipeline.Value) + ', Tempo = ' + IntToStr(LTime) + ' ms');
+  Writeln('TestPipeline: (5 * 2) + 3 = ' + IntToStr(LPipeline.Value) +
+    ', Tempo = ' + IntToStr(LTime) + ' ms');
 end;
 
 procedure TTestCurrying.TestMemoize;
@@ -403,10 +489,10 @@ var
   LFirstCallTime, LSecondCallTime: Int64;
 begin
   LSlowFunc := function(X: Integer): Integer
-  begin
-    Sleep(100);
-    Result := X * 2;
-  end;
+    begin
+      Sleep(100);
+      Result := X * 2;
+    end;
 
   LMemoized := TCurrying.Memoize<Integer, Integer>(LSlowFunc);
 
@@ -430,7 +516,10 @@ var
   LUnCurried: TFunc<Integer, Integer, Integer>;
   LCurryResult, LUnCurryResult: Integer;
 begin
-  LAdd := function(X, Y: Integer): Integer begin Result := X + Y; end;
+  LAdd := function(X, Y: Integer): Integer
+    begin
+      Result := X + Y;
+    end;
   LCurried := TCurrying.Curry<Integer, Integer, Integer>(LAdd);
   LUnCurried := TCurrying.UnCurry<Integer, Integer, Integer>(LCurried);
 
@@ -448,10 +537,19 @@ var
   LTime: Int64;
 begin
   LStopwatch := TStopwatch.StartNew;
-  LPipeline := TCurrying.Pipe<Integer>(10)
-    .Map<Integer>(function(X: Integer): Integer begin Result := X * 2; end)
-    .Apply<Integer>(function(X: Integer): Integer begin Result := X + 5; end)
-    .Thn<Integer>(function(X: Integer): Integer begin Result := X - 3; end);
+  LPipeline := TCurrying.Pipe<Integer>(10).Map<Integer>(
+    function(X: Integer): Integer
+    begin
+      Result := X * 2;
+    end).Apply<Integer>(
+    function(X: Integer): Integer
+    begin
+      Result := X + 5;
+    end).Thn<Integer>(
+    function(X: Integer): Integer
+    begin
+      Result := X - 3;
+    end);
   LTime := LStopwatch.ElapsedMilliseconds;
   Assert.AreEqual(22, LPipeline.Value, 'Resultado deve ser 22');
   Assert.IsTrue(LTime < 50, 'Pipeline com múltiplas operações deve ser rápido (< 50ms)');
@@ -464,7 +562,10 @@ var
   LPartialFunc: TFunc<Integer, Integer>;
   LResult: Integer;
 begin
-  LSubtract := function(X, Y: Integer): Integer begin Result := X - Y; end;
+  LSubtract := function(X, Y: Integer): Integer
+    begin
+      Result := X - Y;
+    end;
   LPartialFunc := TCurrying.Partial<Integer, Integer>(LSubtract, 3, False);
   LResult := LPartialFunc(10);
   Assert.AreEqual(7, LResult, '10 - 3 = 7 com FixFirst = False');
@@ -475,26 +576,27 @@ procedure TTestCurrying.TestMemoizeThreadSafety;
 var
   LSlowFunc: TFunc<Integer, Integer>;
   LMemoized: TFunc<Integer, Integer>;
-  LThreads: array[1..10] of TThread;
+  LThreads: array [1 .. 10] of TThread;
   LIndex: Integer;
 
   function CreateThreadProc(ThreadIndex: Integer): TProc;
   begin
     Result := procedure
-    var
-      LResult: Integer;
-    begin
-      LResult := LMemoized(2);
-      Assert.AreEqual(4, LResult);
-      Writeln('Thread ' + IntToStr(ThreadIndex) + ': Resultado = ' + IntToStr(LResult));
-    end;
+      var
+        LResult: Integer;
+      begin
+        LResult := LMemoized(2);
+        Assert.AreEqual(4, LResult);
+        Writeln('Thread ' + IntToStr(ThreadIndex) + ': Resultado = ' + IntToStr(LResult));
+      end;
   end;
+
 begin
   LSlowFunc := function(X: Integer): Integer
-  begin
-    Sleep(100);
-    Result := X * 2;
-  end;
+    begin
+      Sleep(100);
+      Result := X * 2;
+    end;
 
   LMemoized := TCurrying.Memoize<Integer, Integer>(LSlowFunc);
 
@@ -528,12 +630,15 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5]);
     LOutput := TCurrying.Map<Integer, string>(LInput,
-      function(X: Integer): string begin Result := IntToStr(X * 2); end);
+      function(X: Integer): string
+      begin
+        Result := IntToStr(X * 2);
+      end);
     try
       Assert.AreEqual(5, LOutput.Count, 'Deve ter 5 elementos');
       for LFor := 0 to 4 do
         Assert.AreEqual(IntToStr((LFor + 1) * 2), LOutput[LFor], 'Elemento ' + IntToStr(LFor) + ' incorreto');
-      Writeln('TestMapIntegerToString: [' + TCurrying.ArrayToString<string>(LOutput.ToArray) + ']');
+      Writeln('TestMapIntegerToString: [' + TCurrying.ArrayToString<string> (LOutput.ToArray) + ']');
     finally
       LOutput.Free;
     end;
@@ -550,7 +655,10 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LOutput := TCurrying.Filter<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
     try
       Assert.AreEqual(3, LOutput.Count, 'Deve ter 3 elementos pares');
       Assert.AreEqual(2, LOutput[0], 'Primeiro elemento incorreto');
@@ -574,7 +682,11 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5]);
     LSum := TCurrying.Fold<Integer, Integer>(LInput, 0,
-      function(Acc, X: Integer): Integer begin Result := Acc + X; end);
+      function(Acc, X: Integer): Integer
+      begin
+        Result := Acc + X;
+      end);
+
     Assert.AreEqual(15, LSum, 'Soma deve ser 15');
     Writeln('TestFoldSumIntegers: Soma = ' + IntToStr(LSum));
   finally
@@ -642,10 +754,13 @@ begin
       Assert.AreEqual(3, LPairs.Count, 'Deve ter 3 pares');
       for LFor := 0 to 2 do
       begin
-        Assert.AreEqual(LFor + 1, LPairs[LFor].Key, 'Chave do par ' + IntToStr(LFor) + ' incorreto');
-        Assert.AreEqual(LWords[LFor], LPairs[LFor].Value, 'Valor do par ' + IntToStr(LFor) + ' incorreto');
+        Assert.AreEqual(LFor + 1, LPairs[LFor].Key,
+          'Chave do par ' + IntToStr(LFor) + ' incorreto');
+        Assert.AreEqual(LWords[LFor], LPairs[LFor].Value,
+          'Valor do par ' + IntToStr(LFor) + ' incorreto');
       end;
-      Writeln('TestZipIntegersAndStrings: [' + TCurrying.ArrayToString<TPair<Integer, string>>(LPairs.ToArray, '; ') + ']');
+
+      Writeln('TestZipIntegersAndStrings: [' + TCurrying.ArrayToString<TPair<Integer, string>> (LPairs.ToArray, '; ') + ']');
     finally
       LPairs.Free;
     end;
@@ -664,7 +779,11 @@ begin
   try
     LInput.AddRange([1, 3, 5, 6, 7]);
     LResult := TCurrying.Any<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
+
     Assert.IsTrue(LResult, 'Deve haver pelo menos um número par');
     Writeln('TestAnyHasEvenNumbers: Existe par = ' + BoolToStr(LResult, True));
   finally
@@ -681,14 +800,21 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5]);
     LResult := TCurrying.All<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X > 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X > 0;
+      end);
     Assert.IsTrue(LResult, 'Todos os números devem ser positivos');
     Writeln('TestAllPositiveNumbers: Todos positivos = ' + BoolToStr(LResult, True));
 
     LInput.Clear;
     LInput.AddRange([1, 2, -3, 4, 5]);
     LResult := TCurrying.All<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X > 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X > 0;
+      end);
+
     Assert.IsFalse(LResult, 'Nem todos os números são positivos');
     Writeln('TestAllPositiveNumbers: Todos positivos (com negativo) = ' + BoolToStr(LResult, True));
   finally
@@ -706,7 +832,10 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LGroups := TCurrying.GroupBy<Integer, Integer>(LInput,
-      function(X: Integer): Integer begin Result := X mod 2; end);
+      function(X: Integer): Integer
+      begin
+        Result := X mod 2;
+      end);
     try
       Assert.AreEqual(2, LGroups.Count, 'Deve haver 2 grupos (par e ímpar)');
 
@@ -742,7 +871,10 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LOutput := TCurrying.TakeWhile<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X < 5; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X < 5;
+      end);
     try
       Assert.AreEqual(4, LOutput.Count, 'Deve ter 4 elementos menores que 5');
       Assert.AreEqual(1, LOutput[0], 'Primeiro elemento incorreto');
@@ -766,7 +898,10 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LOutput := TCurrying.DropWhile<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X < 3; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X < 3;
+      end);
     try
       Assert.AreEqual(4, LOutput.Count, 'Deve ter 4 elementos a partir de 3');
       Assert.AreEqual(3, LOutput[0], 'Primeiro elemento incorreto');
@@ -864,7 +999,11 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LCount := TCurrying.Count<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
+
     Assert.AreEqual(3, LCount, 'Deve haver 3 números pares');
     Writeln('TestCountEvenNumbers: Quantidade de pares = ' + IntToStr(LCount));
   finally
@@ -881,7 +1020,11 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LResult := TCurrying.First<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
+
     Assert.AreEqual(2, LResult, 'O primeiro número par deve ser 2');
     Writeln('TestFirstEvenNumber: Primeiro par = ' + IntToStr(LResult));
   finally
@@ -898,7 +1041,11 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LResult := TCurrying.Last<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
+
     Assert.AreEqual(6, LResult, 'O último número par deve ser 6');
     Writeln('TestLastEvenNumber: Último par = ' + IntToStr(LResult));
   finally
@@ -912,8 +1059,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<string>('Hi'));
   LResult := LCurrying.Op<string>(
-    function(A, B: string): string begin Result := A + B; end
-  )(' There');
+    function(A, B: string): string
+    begin
+      Result := A + B;
+    end)(' There');
+
   Assert.AreEqual('Hi There', LResult.Value<string>);
   Writeln('TestStringRepeatOperation: Resultado = ' + LResult.Value<string>);
 end;
@@ -927,9 +1077,9 @@ begin
   LList2 := TList<Integer>.Create;
   try
     LList1.AddRange([1, 2]);
-    LCurrying := TCurrying.Create(TValue.From<TList<Integer>>(LList1));
+    LCurrying := TCurrying.Create(TValue.From < TList < Integer >> (LList1));
     LList2.AddRange([3, 4]);
-    LResult := LCurrying.Op<TList<Integer>>(
+    LResult := LCurrying.Op < TList < Integer >> (
       function(A, B: TList<Integer>): TList<Integer>
       var
         LResultList: TList<Integer>;
@@ -946,16 +1096,16 @@ begin
           LResultList.Free;
           raise;
         end;
-      end
-    )(LList2);
+      end)(LList2);
+
     Assert.AreEqual(4, LResult.Value<TList<Integer>>.Count, 'Deve ter 4 elementos');
     Assert.Contains<Integer>(LResult.Value<TList<Integer>>.ToArray, 1, 'Deve conter 1');
     Assert.Contains<Integer>(LResult.Value<TList<Integer>>.ToArray, 2, 'Deve conter 2');
     Assert.Contains<Integer>(LResult.Value<TList<Integer>>.ToArray, 3, 'Deve conter 3');
     Assert.Contains<Integer>(LResult.Value<TList<Integer>>.ToArray, 4, 'Deve conter 4');
-    Writeln('TestListConcatOperation: [' + TCurrying.ArrayToString<Integer>(LResult.Value<TList<Integer>>.ToArray) + ']');
+    Writeln('TestListConcatOperation: [' + TCurrying.ArrayToString<Integer>(LResult.Value < TList < Integer >>.ToArray) + ']');
   finally
-    LResult.Value<TList<Integer>>.Free;
+    LResult.Value < TList < Integer >>.Free;
     LList2.Free;
     LList1.Free;
   end;
@@ -996,7 +1146,10 @@ begin
   try
     LInput.AddRange([1, 2, 3, 4, 5, 6]);
     LPartition := TCurrying.Partition<Integer>(LInput,
-      function(X: Integer): Boolean begin Result := X mod 2 = 0; end);
+      function(X: Integer): Boolean
+      begin
+        Result := X mod 2 = 0;
+      end);
     try
       Assert.AreEqual(3, LPartition.Key.Count, 'Deve ter 3 números pares');
       Assert.Contains<Integer>(LPartition.Key.ToArray, 2, 'Pares deve conter 2');
@@ -1025,7 +1178,7 @@ var
   LSubList1, LSubList2: TList<Integer>;
   LOutput: TList<Integer>;
 begin
-  LInput := TList<TList<Integer>>.Create;
+  LInput := TList < TList < Integer >>.Create;
   LSubList1 := TList<Integer>.Create;
   LSubList2 := TList<Integer>.Create;
   try
@@ -1084,15 +1237,20 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Boolean>(True));
   LResult := LCurrying.Op<Boolean>(
-    function(A, B: Boolean): Boolean begin Result := A or B; end
-  )(False);
+    function(A, B: Boolean): Boolean
+    begin
+      Result := A or B;
+    end)(False);
   Assert.IsTrue(LResult.Value<Boolean>, 'True OR False deve ser True');
   Writeln('TestBooleanOperation: True OR False = ' + BoolToStr(LResult.Value<Boolean>, True));
 
   LCurrying := TCurrying.Create(TValue.From<Boolean>(True));
   LResult := LCurrying.Op<Boolean>(
-    function(A, B: Boolean): Boolean begin Result := A and B; end
-  )(False);
+    function(A, B: Boolean): Boolean
+    begin
+      Result := A and B;
+    end)(False);
+
   Assert.IsFalse(LResult.Value<Boolean>, 'True AND False deve ser False');
   Writeln('TestBooleanOperation: True AND False = ' + BoolToStr(LResult.Value<Boolean>, True));
 end;
@@ -1106,8 +1264,11 @@ begin
   LAddDays := 5;
   LCurrying := TCurrying.Create(TValue.From<TDateTime>(LStartDate));
   LResult := LCurrying.Op<TDateTime>(
-    function(A, B: TDateTime): TDateTime begin Result := A + B; end
-  )(LAddDays);
+    function(A, B: TDateTime): TDateTime
+    begin
+      Result := A + B;
+    end)(LAddDays);
+
   Assert.AreEqual(EncodeDate(2023, 1, 6), LResult.Value<TDateTime>, '1/1/2023 + 5 dias deve ser 6/1/2023');
   Writeln('TestDateTimeOperation: ' + DateToStr(LStartDate) + ' + 5 dias = ' + DateToStr(LResult.Value<TDateTime>));
 end;
@@ -1118,8 +1279,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<string>('Hi'));
   LResult := LCurrying.Op<string>(
-    function(A, B: string): string begin Result := A + B; end
-  )(' There');
+    function(A, B: string): string
+    begin
+      Result := A + B;
+    end)(' There');
+
   Assert.AreEqual('Hi There', LResult.Value<string>, 'Hi + There deve ser Hi There');
   Writeln('TestStringOperation: Hi + There = ' + LResult.Value<string>);
 
@@ -1135,8 +1299,8 @@ begin
       for LFor := 1 to LCount do
         LResult := LResult + A;
       Result := LResult;
-    end
-  )('abc');
+    end)('abc');
+
   Assert.AreEqual('xxx', LResult.Value<string>, 'x * 3 deve ser xxx');
   Writeln('TestStringOperation: x * abc (3) = ' + LResult.Value<string>);
 end;
@@ -1147,15 +1311,21 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Currency>(10.50));
   LResult := LCurrying.Op<Currency>(
-    function(A, B: Currency): Currency begin Result := A + B; end
-  )(5.25);
+    function(A, B: Currency): Currency
+    begin
+      Result := A + B;
+    end)(5.25);
+
   Assert.AreEqual(Currency(15.75), LResult.Value<Currency>, '10.50 + 5.25 deve ser 15.75');
   Writeln('TestCurrencyOperation: 10.50 + 5.25 = ' + CurrToStr(LResult.Value<Currency>));
 
   LCurrying := TCurrying.Create(TValue.From<Currency>(20.00));
   LResult := LCurrying.Op<Currency>(
-    function(A, B: Currency): Currency begin Result := A * B; end
-  )(2.00);
+    function(A, B: Currency): Currency
+    begin
+      Result := A * B;
+    end)(2.00);
+
   Assert.AreEqual(Currency(40.00), LResult.Value<Currency>, '20.00 * 2.00 deve ser 40.00');
   Writeln('TestCurrencyOperation: 20.00 * 2.00 = ' + CurrToStr(LResult.Value<Currency>));
 end;
@@ -1166,8 +1336,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Byte>(100));
   LResult := LCurrying.Op<Byte>(
-    function(A, B: Byte): Byte begin Result := A + B; end
-  )(50);
+    function(A, B: Byte): Byte
+    begin
+      Result := A + B;
+    end)(50);
+
   Assert.AreEqual(Byte(150), LResult.Value<Byte>, '100 + 50 deve ser 150');
   Writeln('TestByteOperation: 100 + 50 = ' + IntToStr(LResult.Value<Byte>));
 end;
@@ -1178,8 +1351,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<ShortInt>(50));
   LResult := LCurrying.Op<ShortInt>(
-    function(A, B: ShortInt): ShortInt begin Result := A + B; end
-  )(20);
+    function(A, B: ShortInt): ShortInt
+    begin
+      Result := A + B;
+    end)(20);
+
   Assert.AreEqual(ShortInt(70), LResult.Value<ShortInt>, '50 + 20 deve ser 70');
   Writeln('TestShortIntOperation: 50 + 20 = ' + IntToStr(LResult.Value<ShortInt>));
 end;
@@ -1190,8 +1366,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Word>(1000));
   LResult := LCurrying.Op<Word>(
-    function(A, B: Word): Word begin Result := A + B; end
-  )(500);
+    function(A, B: Word): Word
+    begin
+      Result := A + B;
+    end)(500);
+
   Assert.AreEqual(Word(1500), LResult.Value<Word>, '1000 + 500 deve ser 1500');
   Writeln('TestWordOperation: 1000 + 500 = ' + IntToStr(LResult.Value<Word>));
 end;
@@ -1202,8 +1381,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<SmallInt>(1000));
   LResult := LCurrying.Op<SmallInt>(
-    function(A, B: SmallInt): SmallInt begin Result := A + B; end
-  )(500);
+    function(A, B: SmallInt): SmallInt
+    begin
+      Result := A + B;
+    end)(500);
+
   Assert.AreEqual(SmallInt(1500), LResult.Value<SmallInt>, '1000 + 500 deve ser 1500');
   Writeln('TestSmallIntOperation: 1000 + 500 = ' + IntToStr(LResult.Value<SmallInt>));
 end;
@@ -1214,8 +1396,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<LongWord>(100000));
   LResult := LCurrying.Op<LongWord>(
-    function(A, B: LongWord): LongWord begin Result := A + B; end
-  )(50000);
+    function(A, B: LongWord): LongWord
+    begin
+      Result := A + B;
+    end)(50000);
+
   Assert.AreEqual(LongWord(150000), LResult.Value<LongWord>, '100000 + 50000 deve ser 150000');
   Writeln('TestLongWordOperation: 100000 + 50000 = ' + IntToStr(LResult.Value<LongWord>));
 end;
@@ -1226,8 +1411,11 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Int64>(1000000));
   LResult := LCurrying.Op<Int64>(
-    function(A, B: Int64): Int64 begin Result := A + B; end
-  )(500000);
+    function(A, B: Int64): Int64
+    begin
+      Result := A + B;
+    end)(500000);
+
   Assert.AreEqual(Int64(1500000), LResult.Value<Int64>, '1000000 + 500000 deve ser 1500000');
   Writeln('TestInt64Operation: 1000000 + 500000 = ' + IntToStr(LResult.Value<Int64>));
 end;
@@ -1238,13 +1426,17 @@ var
 begin
   LCurrying := TCurrying.Create(TValue.From<Single>(5.5));
   LResult := LCurrying.Op<Single>(
-    function(A, B: Single): Single begin Result := A + B; end
-  )(2.5);
+    function(A, B: Single): Single
+    begin
+      Result := A + B;
+    end)(2.5);
+
   Assert.AreEqual(Single(8.0), LResult.Value<Single>, '5.5 + 2.5 deve ser 8.0');
   Writeln('TestSingleOperation: 5.5 + 2.5 = ' + FloatToStr(LResult.Value<Single>));
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(TTestCurrying);
+
+TDUnitX.RegisterTestFixture(TTestCurrying);
 
 end.
