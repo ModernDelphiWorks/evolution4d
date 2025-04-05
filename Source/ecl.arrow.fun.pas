@@ -1,5 +1,5 @@
 ﻿{
-               ECL - Evolution Core Library for Delphi
+                 ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
@@ -33,7 +33,8 @@ uses
   SysUtils,
   TypInfo,
   Generics.Collections,
-  ecl.std;
+  ecl.std,
+  ecl.system;
 
 type
   EArrowException = Exception;
@@ -62,56 +63,26 @@ type
     /// <param name="AValue">The value to store internally.</param>
     /// <returns>A procedure that assigns AValue to the internal FValue when executed.</returns>
     class function Fn(const AValue: TValue): TProc; overload; static;
-
-    /// <summary>
-    /// Creates a procedure that sets an internal string value.
-    /// </summary>
-    /// <param name="AValue">The string value to store internally.</param>
-    /// <returns>A procedure that assigns AValue to the internal FValue when executed.</returns>
     class function Fn(const AValue: string): TProc; overload; static;
     class function Fn(const AValue: Integer): TProc; overload; static;
     class function Fn(const AValue: Boolean): TProc; overload; static;
-
-    /// <summary>
-    ///   Creates a procedure that assigns multiple values to referenced variables based on a tuple.
-    /// </summary>
-    /// <remarks>
-    ///   Uses an array of pointers to variables and a Tuple to update multiple variables with type-safe conversions.
-    ///   Throws an exception if the array lengths do not match or if types are unsupported.
-    /// </remarks>
-    /// <param name="AVarRefs">An array of pointers to variables to be updated.</param>
-    /// <param name="AValues">A Tuple containing the values to assign to the variables.</param>
-    /// <returns>A procedure that updates the variables with values from AValues when executed with a TValue.</returns>
+    class function Fn(const AValue: TObject): TProc; overload; static;
     class function Fn(const AVarRefs: TArray<Pointer>; const AValues: Tuple): TProc<TValue>; overload; static;
-
-    /// <summary>
-    ///   Creates a procedure that assigns a value to a typed variable.
-    /// </summary>
-    /// <remarks>
-    ///   Provides a type-safe way to update a single variable with a specified value when the procedure is executed.
-    /// </remarks>
-    /// <param name="AVar">The variable to update, passed by reference.</param>
-    /// <param name="AValue">The value to assign to AVar.</param>
-    /// <returns>A procedure that updates AVar with AValue when executed with a TValue.</returns>
-    class function Fn<T>(var AVar: T; const AValue: T): TProc<TValue>; overload; inline; static;
+    class function Fn<T>(var AVar: T; const AValue: T): TProc<TValue>; overload; static;
 
     /// <summary>
     ///   Creates a function that sets an internal value and returns it.
     /// </summary>
     /// <param name="AValue">The value to store and return.</param>
     /// <returns>A function that assigns AValue to FValue and returns it when executed.</returns>
-    class function Result(const AValue: TValue): TFunc<TValue>; static;
-
-    /// <summary>
-    /// Creates a function that returns a string value.
-    /// </summary>
-    /// <param name="AValue">The string value to return.</param>
-    /// <returns>A function that returns the specified string value when executed.</returns>
+    class function Result(const AValue: TValue): TFunc<TValue>; overload; static;
     class function Result(const AValue: string): TFunc<string>; overload; static;
     class function Result(const AValue: Integer): TFunc<Integer>; overload; static;
     class function Result(const AValue: Boolean): TFunc<Boolean>; overload; static;
     class function Result(const AValue: Double): TFunc<Double>; overload; static;
     class function Result(const AValue: TDateTime): TFunc<TDateTime>; overload; static;
+    class function Result(const AValue: TObject): TFunc<TObject>; overload; static;
+    class function Result<T>(const AValue: T): TFunc<T>; overload; static;
 
     /// <summary>
     ///   Retrieves the last stored value as a specified type.
@@ -276,6 +247,14 @@ begin
             end;
 end;
 
+class function TArrow.Fn(const AValue: TObject): TProc;
+begin
+  Result := procedure
+            begin
+              FValue := TValue.From<TObject>(AValue);
+            end;
+end;
+
 class function TArrow.Fn(const AValue: Boolean): TProc;
 begin
   Result := procedure
@@ -314,7 +293,6 @@ begin
             begin
               Result := AValue;
             end;
-
 end;
 
 class function TArrow.Result(const AValue: Double): TFunc<Double>;
@@ -323,7 +301,22 @@ begin
             begin
               Result := AValue;
             end;
+end;
 
+class function TArrow.Result(const AValue: TObject): TFunc<TObject>;
+begin
+  Result := function: TObject
+            begin
+              Result := AValue;
+            end;
+end;
+
+class function TArrow.Result<T>(const AValue: T): TFunc<T>;
+begin
+  Result := function: T
+            begin
+              Result := AValue;
+            end;
 end;
 
 end.

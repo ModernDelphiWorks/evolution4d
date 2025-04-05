@@ -1,8 +1,5 @@
 ﻿{
-               ECL - Evolution Core Library for Delphi
-
-                   Copyright (c) 2023, Isaque Pinheiro
-                          All rights reserved.
+               Evolution4D: Modern Delphi Development Library
 
                     GNU Lesser General Public License
                       Versão 3, 29 de junho de 2007

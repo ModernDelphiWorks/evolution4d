@@ -1,5 +1,5 @@
 ﻿{
-               ECL - Evolution Core Library for Delphi
+                 ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.
@@ -299,7 +299,7 @@ end;
 function TOption<T>.GetValue: T;
 begin
   if not FHasValue then
-    raise Exception.Create('Tentativa de acessar valor de um TOption.None');
+    raise Exception.Create('Attempted to access a value from TOption.None');
   Result := FValue;
 end;
 
@@ -497,5 +497,6 @@ begin
 end;
 
 end.
+
 
 

@@ -1,5 +1,5 @@
 ﻿{
-               ECL - Evolution Core Library for Delphi
+                 ECL - Evolution Core Library for Delphi
 
                    Copyright (c) 2023, Isaque Pinheiro
                           All rights reserved.

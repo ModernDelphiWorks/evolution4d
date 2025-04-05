@@ -278,17 +278,16 @@ end;
 
 procedure TestTOption.TestMatchWithNone;
 var
-  Optional: TOption<Integer>;
   LResult: string;
 begin
   // Arrange
-  Optional := TOption<Integer>.None;
+  var LOptional := TOption<Integer>.None;
 
   // Act
-  LResult := Optional.Match<string>(
-                        TSome(Format('has value %s', [Optional.AsString])),
-                        TNone('has no value')
-                      );
+  LResult := LOptional.Match<string>(
+                         TSome(Format('has value %s', [LOptional.AsString])),
+                         TNone('has no value')
+                       );
 
   // Assert
   Assert.AreEqual('has no value', LResult, 'Deveria retornar a mensagem do caso None');
@@ -296,17 +295,17 @@ end;
 
 procedure TestTOption.TestMatchWithSome;
 var
-  Optional: TOption<Integer>;
+  LOptional: TOption<Integer>;
   LResult: string;
 begin
   // Arrange
-  Optional := TOption<Integer>.Some(9000);
+  LOptional := TOption<Integer>.Some(9000);
 
   // Act
-  LResult := Optional.Match<string>(
-                        TSome(Format('has value %s', [Optional.AsString])),
-                        TNone('has no value')
-                      );
+  LResult := LOptional.Match<string>(
+                         TSome(Format('has value %s', [LOptional.AsString])),
+                         TNone('has no value')
+                       );
 
   // Assert
   Assert.AreEqual('has value 9000', LResult, 'Deveria retornar a mensagem formatada com o valor 9000');

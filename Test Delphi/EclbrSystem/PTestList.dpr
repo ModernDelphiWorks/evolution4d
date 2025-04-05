@@ -17,11 +17,11 @@ uses
   {$ENDIF }
   DUnitX.TestFramework,
   UTestEcl.List in 'UTestEcl.List.pas',
-  ecl.list in '..\..\Source\ecl.list.pas',
-  ecl.vector in '..\..\Source\ecl.vector.pas',
-  ecl.map in '..\..\Source\ecl.map.pas',
-  ecl.arrow.fun in '..\..\Source\ecl.arrow.fun.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  Fluent.Collections in '..\..\..\Fluent4D\Source\Fluent.Collections.pas',
+  Fluent.Adapters in '..\..\..\Fluent4D\Source\Fluent.Adapters.pas',
+  Fluent.Core in '..\..\..\Fluent4D\Source\Fluent.Core.pas',
+  Fluent.Helpers in '..\..\..\Fluent4D\Source\Fluent.Helpers.pas',
+  Fluent.Lazy in '..\..\..\Fluent4D\Source\Fluent.Lazy.pas';
 
 {$IFNDEF TESTINSIGHT}
 var
@@ -31,6 +31,7 @@ var
   nunitLogger : ITestLogger;
 {$ENDIF}
 begin
+  ReportMemoryLeaksOnShutdown := True;
 {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX.RunRegisteredTests;
 {$ELSE}

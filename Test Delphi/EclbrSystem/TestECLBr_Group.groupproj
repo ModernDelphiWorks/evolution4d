@@ -3,7 +3,7 @@
         <ProjectGuid>{EF844C65-F513-421D-B3D0-B4D5EABA97EC}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="PTestDictionary.dproj">
+        <Projects Include="..\..\..\Fluent4D\Test Delphi\PTestDictionary.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="PTestMatch.dproj">
@@ -21,7 +21,7 @@
         <Projects Include="PTestMap.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="PTestList.dproj">
+        <Projects Include="..\..\..\Fluent4D\Test Delphi\PTestList.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="PTestStream.dproj">
@@ -66,13 +66,13 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="PTestDictionary">
-        <MSBuild Projects="PTestDictionary.dproj"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestDictionary.dproj"/>
     </Target>
     <Target Name="PTestDictionary:Clean">
-        <MSBuild Projects="PTestDictionary.dproj" Targets="Clean"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestDictionary.dproj" Targets="Clean"/>
     </Target>
     <Target Name="PTestDictionary:Make">
-        <MSBuild Projects="PTestDictionary.dproj" Targets="Make"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestDictionary.dproj" Targets="Make"/>
     </Target>
     <Target Name="PTestMatch">
         <MSBuild Projects="PTestMatch.dproj"/>
@@ -120,13 +120,13 @@
         <MSBuild Projects="PTestMap.dproj" Targets="Make"/>
     </Target>
     <Target Name="PTestList">
-        <MSBuild Projects="PTestList.dproj"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestList.dproj"/>
     </Target>
     <Target Name="PTestList:Clean">
-        <MSBuild Projects="PTestList.dproj" Targets="Clean"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestList.dproj" Targets="Clean"/>
     </Target>
     <Target Name="PTestList:Make">
-        <MSBuild Projects="PTestList.dproj" Targets="Make"/>
+        <MSBuild Projects="..\..\..\Fluent4D\Test Delphi\PTestList.dproj" Targets="Make"/>
     </Target>
     <Target Name="PTestStream">
         <MSBuild Projects="PTestStream.dproj"/>
