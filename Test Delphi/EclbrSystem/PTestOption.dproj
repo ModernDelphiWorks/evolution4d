@@ -87,9 +87,9 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UTestEcl.Option.pas"/>
-        <DCCReference Include="..\..\Source\ecl.option.pas"/>
-        <DCCReference Include="..\..\Source\ecl.result.pair.pas"/>
+        <DCCReference Include="UTestEvolution.Option.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Option.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.ResultPair.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

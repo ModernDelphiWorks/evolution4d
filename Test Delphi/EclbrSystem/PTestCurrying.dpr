@@ -16,8 +16,8 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.Currying in 'UTestEcl.Currying.pas',
-  ecl.currying in '..\..\Source\ecl.currying.pas';
+  UTestEvolution.Currying in 'UTestEvolution.Currying.pas',
+  Evolution.Currying in '..\..\Source\Evolution.Currying.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

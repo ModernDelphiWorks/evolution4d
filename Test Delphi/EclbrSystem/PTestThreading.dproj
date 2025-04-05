@@ -107,10 +107,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UTestEcl.Threading.pas"/>
-        <DCCReference Include="..\..\Source\ecl.threading.pas"/>
-        <DCCReference Include="..\..\Source\ecl.std.pas"/>
-        <DCCReference Include="..\..\Source\ecl.map.pas"/>
+        <DCCReference Include="UTestEvolution.Threading.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Threading.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Std.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.System.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

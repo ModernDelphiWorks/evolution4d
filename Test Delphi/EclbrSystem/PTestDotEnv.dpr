@@ -14,11 +14,11 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.DotEnv in 'UTestEcl.DotEnv.pas',
-  ecl.dot.env in '..\..\Source\ecl.dot.env.pas',
-  ecl.crypt in '..\..\Source\ecl.crypt.pas',
-  ecl.map in '..\..\Source\ecl.map.pas',
-  ecl.std in '..\..\Source\ecl.std.pas';
+  UTestEvolution.DotEnv in 'UTestEvolution.DotEnv.pas',
+  Evolution.DotEnv in '..\..\Source\Evolution.DotEnv.pas',
+  Evolution.Crypt in '..\..\Source\Evolution.Crypt.pas',
+  Evolution.Std in '..\..\Source\Evolution.Std.pas',
+  Evolution.System in '..\..\Source\Evolution.System.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

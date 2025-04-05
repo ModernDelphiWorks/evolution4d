@@ -16,14 +16,14 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.Match in 'UTestEcl.Match.pas',
-  ecl.match in '..\..\Source\ecl.match.pas',
-  ecl.regexlib in '..\..\Source\ecl.regexlib.pas',
-  ecl.result.pair in '..\..\Source\ecl.result.pair.pas',
-  ecl.tuple in '..\..\Source\ecl.tuple.pas',
-  ecl.arrow.fun in '..\..\Source\ecl.arrow.fun.pas',
-  ecl.std in '..\..\Source\ecl.std.pas',
-  ecl.map in '..\..\Source\ecl.map.pas';
+  UTestEvolution.Match in 'UTestEvolution.Match.pas',
+  Evolution.Match in '..\..\Source\Evolution.Match.pas',
+  Evolution.RegEx in '..\..\Source\Evolution.RegEx.pas',
+  Evolution.ResultPair in '..\..\Source\Evolution.ResultPair.pas',
+  Evolution.Tuple in '..\..\Source\Evolution.Tuple.pas',
+  Evolution.ArrowFun in '..\..\Source\Evolution.ArrowFun.pas',
+  Evolution.Std in '..\..\Source\Evolution.Std.pas',
+  Evolution.System in '..\..\Source\Evolution.System.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

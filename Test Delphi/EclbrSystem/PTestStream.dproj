@@ -107,14 +107,13 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\..\Source\ecl.stream.pas"/>
-        <DCCReference Include="UTestEcl.StreamReader.pas"/>
-        <DCCReference Include="..\..\Source\ecl.map.pas"/>
-        <DCCReference Include="..\..\Source\ecl.vector.pas"/>
-        <DCCReference Include="..\..\Source\ecl.arrow.fun.pas"/>
-        <DCCReference Include="..\..\Source\ecl.objects.pas"/>
-        <DCCReference Include="..\..\Source\ecl.std.pas"/>
-        <DCCReference Include="..\..\Source\ecl.threading.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Stream.pas"/>
+        <DCCReference Include="UTestEvolution.StreamReader.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.ArrowFun.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Objects.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Std.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Threading.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.System.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

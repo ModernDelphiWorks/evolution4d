@@ -87,11 +87,11 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UTestEcl.DotEnv.pas"/>
-        <DCCReference Include="..\..\Source\ecl.dot.env.pas"/>
-        <DCCReference Include="..\..\Source\ecl.crypt.pas"/>
-        <DCCReference Include="..\..\Source\ecl.map.pas"/>
-        <DCCReference Include="..\..\Source\ecl.std.pas"/>
+        <DCCReference Include="UTestEvolution.DotEnv.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.DotEnv.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Crypt.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Std.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.System.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -106,14 +106,14 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UTestEcl.Tuple.pas"/>
-        <DCCReference Include="..\..\Source\ecl.tuple.pas"/>
-        <DCCReference Include="..\..\Source\ecl.match.pas"/>
-        <DCCReference Include="..\..\Source\ecl.arrow.fun.pas"/>
-        <DCCReference Include="..\..\Source\ecl.regexlib.pas"/>
-        <DCCReference Include="..\..\Source\ecl.result.pair.pas"/>
-        <DCCReference Include="..\..\Source\ecl.std.pas"/>
-        <DCCReference Include="..\..\Source\ecl.map.pas"/>
+        <DCCReference Include="UTestEvolution.Tuple.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Tuple.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Match.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.ArrowFun.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.RegEx.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.ResultPair.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Std.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.System.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

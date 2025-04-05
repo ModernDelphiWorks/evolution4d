@@ -7,7 +7,7 @@ program CurryingDemo;
 uses
   SysUtils,
   UCurryingDemo in 'UCurryingDemo.pas',
-  ecl.currying in '..\Source\ecl.currying.pas';
+  Evolution.Currying in '..\Source\Evolution.Currying.pas';
 
 begin
   try

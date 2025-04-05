@@ -16,9 +16,9 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.Objects in 'UTestEcl.Objects.pas',
-  ecl.objects in '..\..\Source\ecl.objects.pas',
-  UTestEcl.Muttle in 'UTestEcl.Muttle.pas';
+  UTestEvolutoin.Objects in 'UTestEvolutoin.Objects.pas',
+  Evolution.Objects in '..\..\Source\Evolution.Objects.pas',
+  UTestEvolution.Muttle in 'UTestEvolution.Muttle.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

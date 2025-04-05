@@ -4,10 +4,10 @@ interface
 
 uses
   Rtti,
-  ecl.currying,
   SysUtils,
   Generics.Collections,
-  DateUtils;
+  DateUtils,
+  Evolution.Currying;
 
 procedure ExampleOpByte;
 procedure ExampleOpShortInt;

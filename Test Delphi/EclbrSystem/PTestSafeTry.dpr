@@ -16,8 +16,8 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.SafeTry in 'UTestEcl.SafeTry.pas',
-  ecl.safetry in '..\..\Source\ecl.safetry.pas';
+  UTestEvolution.SafeTry in 'UTestEvolution.SafeTry.pas',
+  Evolution.Safetry in '..\..\Source\Evolution.Safetry.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

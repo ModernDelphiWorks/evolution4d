@@ -16,13 +16,11 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.Std in 'UTestEcl.Std.pas',
-  ecl.objects in '..\..\Source\ecl.objects.pas',
-  ecl.str in '..\..\Source\ecl.str.pas',
-  ecl.vector in '..\..\Source\ecl.vector.pas',
-  ecl.crypt in '..\..\Source\ecl.crypt.pas',
-  ecl.std in '..\..\Source\ecl.std.pas',
-  ecl.map in '..\..\Source\ecl.map.pas';
+  UTestEvolution.Std in 'UTestEvolution.Std.pas',
+  Evolution.Objects in '..\..\Source\Evolution.Objects.pas',
+  Evolution.Crypt in '..\..\Source\Evolution.Crypt.pas',
+  Evolution.Std in '..\..\Source\Evolution.Std.pas',
+  Evolution.System in '..\..\Source\Evolution.System.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

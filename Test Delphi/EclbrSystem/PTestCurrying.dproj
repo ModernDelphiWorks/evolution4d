@@ -87,8 +87,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UTestEcl.Currying.pas"/>
-        <DCCReference Include="..\..\Source\ecl.currying.pas"/>
+        <DCCReference Include="UTestEvolution.Currying.pas"/>
+        <DCCReference Include="..\..\Source\Evolution.Currying.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -16,10 +16,10 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  UTestEcl.Threading in 'UTestEcl.Threading.pas',
-  ecl.threading in '..\..\Source\ecl.threading.pas',
-  ecl.std in '..\..\Source\ecl.std.pas',
-  ecl.map in '..\..\Source\ecl.map.pas';
+  UTestEvolution.Threading in 'UTestEvolution.Threading.pas',
+  Evolution.Threading in '..\..\Source\Evolution.Threading.pas',
+  Evolution.Std in '..\..\Source\Evolution.Std.pas',
+  Evolution.System in '..\..\Source\Evolution.System.pas';
 
 {$IFNDEF TESTINSIGHT}
 var
