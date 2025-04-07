@@ -224,8 +224,4 @@ object Form2: TForm2
     Height = 89
     TabOrder = 9
   end
-  object FDConnection1: TFDConnection
-    Left = 462
-    Top = 507
-  end
 end
