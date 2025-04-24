@@ -3,7 +3,10 @@ unit UTestEvolution.ResultPair;
 interface
 
 uses
-  DUnitX.TestFramework, System.SysUtils, Evolution.ResultPair, Rtti, Classes;
+  DUnitX.TestFramework,
+  System.SysUtils,
+  System.Evolution.ResultPair,
+  Rtti, Classes;
 
 type
   TTestTResultPair = class

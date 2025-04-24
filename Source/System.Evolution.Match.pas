@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,13 +17,14 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
-unit Evolution.Match;
+unit System.Evolution.Match;
 
 interface
 
@@ -37,10 +36,10 @@ uses
   Classes,
   Generics.Collections,
   Generics.Defaults,
-  Evolution.Std,
-  Evolution.RegEx,
-  Evolution.ResultPair,
-  Evolution.System;
+  System.Evolution.Std,
+  System.Evolution.RegEx,
+  System.Evolution.ResultPair,
+  System.Evolution.System;
 
 type
   TCaseType = (
@@ -64,31 +63,13 @@ type
   );
 
   PTuple = ^Tuple;
-  Tuple = Evolution.System.Tuple;
+  Tuple = System.Evolution.System.Tuple;
 
   // Enumeration to represent different states of the match session
   {$SCOPEDENUMS ON}
   TMatchSession = (sMatch, sGuard, sCase, sDefault, sTryExcept);
   {$SCOPEDENUMS OFF}
 
-  {$REGION 'Doc - TCaseGroup'}
-  ///  <summary>
-  ///    A class representing a group of custom match cases.
-  ///    A case group is defined as a dictionary where the key (TValue) represents
-  ///    the value of the case to be compared, and the value (TValue) represents the action associated with that case.
-  ///    This allows you to define custom match operators, such as CaseGt and CaseLt,
-  ///    that check specific conditions to perform custom actions.
-  ///    For example, you can create a TCaseGroup to represent a series of "greater than" comparisons
-  ///    and associate each comparison with a specific procedure to be executed if the condition is met.
-  ///  </summary>
-  ///  <typeparam name="TValue">
-  ///    The type of value for match cases. It can be any type for which comparison and associated actions are defined.
-  ///  </typeparam>
-  ///  <remarks>
-  ///    Note that the responsibility for checking match conditions and executing associated actions
-  ///    lies with the user of the TCaseGroup class.
-  ///  </remarks>
-  {$ENDREGION}
   TCaseGroup = TDictionary<TValue, TValue>;
 
   // Class implementing the pattern matching
@@ -185,139 +166,26 @@ type
     procedure _CheckTupleWildcard(LTuple1: PTuple; var LTuple2: Tuple); inline;
     constructor Create(const AValue: T);
   public
-    {$REGION 'Doc - Match'}
-    /// <summary>
-    ///   Initializes a new instance of the matching pattern for the specified type.
-    /// </summary>
-    /// <param name="AValue">
-    ///   The value to be matched.
-    /// </param>
-    /// <returns>
-    ///   A new instance of the TPattern&lt;T&gt; class to allow the definition of matching cases.
-    /// </returns>
-    {$ENDREGION}
     class function Value(const AValue: T): TMatch<T>; static; inline;
-
-    {$REGION 'Doc - CaseIf'}
-    /// <summary>
-    /// Defines a matching condition for the current case, allowing a code block to be executed
-    /// only if the specified condition is evaluated as True. Multiple overloads are provided
-    /// to accommodate different scenarios.
-    /// </summary>
-    /// <param name="ACondition">
-    /// The condition to be evaluated to determine if the case should be executed.
-    /// </param>
-    /// <param name="AProc">
-    /// An optional procedure to be executed if the specified condition is True.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the specified condition is True.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of actions
-    /// to be executed if the specified condition is True.
-    /// </returns>
-    {$ENDREGION}
     function CaseIf(const ACondition: Boolean): TMatch<T>; overload; inline;
     function CaseIf(const ACondition: Boolean; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseIf(const ACondition: Boolean; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseIf(const ACondition: Boolean; const AFunc: TFunc<Boolean>): TMatch<T>; overload; inline;
     function CaseIf(const ACondition: Boolean; const AFunc: TFunc<T, Boolean>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - CaseEq'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is equal to the specified value.
-    /// The code block associated with this case will be executed when equality is verified.
-    /// </summary>
-    /// <param name="AValue">
-    /// The value to be compared with the case's value to check for equality.
-    /// </param>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is equal to the specified value.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is equal to the specified value.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more
-    /// actions to be executed if equality is verified.
-    /// </returns>
-    {$ENDREGION}
     function CaseEq(const AValue: T; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseEq(const AValue: T; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseEq(const AValue: T; const AProc: TProc<TValue>): TMatch<T>; overload; inline;
     function CaseEq(const AValue: T; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function CaseEq(const AValue: T; const AFunc: TFunc<T, TValue>): TMatch<T>; overload; inline;
     function CaseEq(const AValue: Tuple; const AFunc: TFunc<Tuple, TValue>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - CaseGt'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is greater than the specified value.
-    /// The code block associated with this case will be executed if the "greater than" condition is verified.
-    /// </summary>
-    /// <param name="AValue">
-    /// The value to be compared with the case's value to check the "greater than" condition.
-    /// </param>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is greater than the specified value.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is greater than the specified value.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more actions
-    /// to be executed if the "greater than" condition is verified.
-    /// </returns>
-    {$ENDREGION}
     function CaseGt(const AValue: T; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseGt(const AValue: T; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function CaseGt(const AValue: T; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseGt(const AValue: T; const AFunc: TFunc<T, TValue>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - CaseLt'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is less than the specified value.
-    /// The code block associated with this case will be executed if the "less than" condition is verified.
-    /// </summary>
-    /// <param name="AValue">
-    /// The value to be compared with the case's value to check the "less than" condition.
-    /// </param>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is less than the specified value.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is less than the specified value.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more actions
-    /// to be executed if the "less than" condition is verified.
-    /// </returns>
-    {$ENDREGION}
     function CaseLt(const AValue: T; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseLt(const AValue: T; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function CaseLt(const AValue: T; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseLt(const AValue: T; const AFunc: TFunc<T, TValue>): TMatch<T>; overload;
-
-    {$REGION 'Doc - CaseIn'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is contained within the specified range of values.
-    /// The code block associated with this case will be executed when the case's value is present in the range.
-    /// </summary>
-    /// <param name="ARange">
-    /// The range of values to be compared with the case's value to check for inclusion.
-    /// </param>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is contained within the specified range.
-    /// The procedure will be called without any parameters.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is contained within the specified range.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more
-    /// actions to be executed if inclusion in the range is verified.
-    /// </returns>
-    {$ENDREGION}
     function CaseIn(const ARange: TArray<T>; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseIn(const ARange: TArray<T>; const AProc: TProc<TValue>): TMatch<T>; overload; inline;
     function CaseIn(const ARange: TArray<T>; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
@@ -333,141 +201,24 @@ type
     function CaseIn(const ASet: TIntegerSet; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function CaseIn(const ASet: TIntegerSet; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseIn(const ASet: TIntegerSet; const AFunc: TFunc<T, TValue>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - CaseIs'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is of the specified type.
-    /// The code block associated with this case will be executed if the case's value is of the specified type.
-    /// </summary>
-    /// <typeparam name="Typ">
-    /// The expected type for the case's value.
-    /// </typeparam>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is of the specified type.
-    /// The procedure does not receive any parameters.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is of the specified type.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more
-    /// actions to be executed if the corresponding type is verified.
-    /// </returns>
-    {$ENDREGION}
     function CaseIs<Typ>(const AProc: TProc): TMatch<T>; overload; //inline;
     function CaseIs<Typ>(const AFunc: TFunc<TValue>): TMatch<T>; overload; //inline;
     function CaseIs<Typ>(const AProc: TProc<Typ>): TMatch<T>; overload; //inline;
     function CaseIs<Typ>(const AFunc: TFunc<Typ, TValue>): TMatch<T>; overload; //inline;
-
-    {$REGION 'Doc - CaseRange'}
-    /// <summary>
-    /// Defines a matching case that is activated when the case's value is within the specified range.
-    /// The code block associated with this case will be executed if the case's value is within the specified range.
-    /// </summary>
-    /// <param name="AStart">
-    /// The lower limit of the range.
-    /// </param>
-    /// <param name="AEnd">
-    /// The upper limit of the range.
-    /// </param>
-    /// <param name="AProc">
-    /// A procedure that will be executed if the case's value is within the specified range.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if the case's value is within the specified range.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more
-    /// actions to be executed within the specified range.
-    /// </returns>
-    {$ENDREGION}
     function CaseRange(const AStart, AEnd: T; const AProc: TProc): TMatch<T>; overload; inline;
     function CaseRange(const AStart, AEnd: T; const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function CaseRange(const AStart, AEnd: T; const AProc: TProc<T>): TMatch<T>; overload; inline;
     function CaseRange(const AStart, AEnd: T; const AFunc: TFunc<T, TValue>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - CaseRegex'}
-    /// <summary>
-    ///   Defines a matching case that is activated when the case's value matches the specified regular expression pattern.
-    ///   The code block associated with this case will be executed if the case's value matches the pattern.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The case's value to be checked against the regular expression pattern.
-    /// </param>
-    /// <param name="APattern">
-    ///   The regular expression pattern used to check if the case's value matches.
-    /// </param>
-    /// <returns>
-    ///   An instance of the current matching pattern, allowing the definition of more actions
-    ///   to be executed if the case's value matches the regular expression pattern.
-    /// </returns>
-    {$ENDREGION}
     function CaseRegex(const AInput: String; const APattern: String): TMatch<T>; inline;
-
-    {$REGION 'Doc - Default'}
-    /// <summary>
-    /// Defines the default case that will be activated if none of the previous cases match the pattern's value.
-    /// The code block associated with this case will be executed if none of the other cases match.
-    /// </summary>
-    /// <param name="AProc">
-    /// The procedure to be executed if none of the previous cases match the pattern's value.
-    /// </param>
-    /// <param name="AFunc">
-    /// An optional function to be executed if none of the previous cases match the pattern's value.
-    /// </param>
-    /// <returns>
-    /// An instance of the current matching pattern, allowing the definition of more actions
-    /// to be executed in the default case.
-    /// </returns>
-    {$ENDREGION}
     function Default(const AProc: TProc): TMatch<T>; overload; inline;
     function Default(const AProc: TProc<TValue>): TMatch<T>; overload; inline;
     function Default(const AFunc: TFunc<TValue>): TMatch<T>; overload; inline;
     function Default(const AFunc: TFunc<T, TValue>): TMatch<T>; overload; inline;
     function Default(const AValue: T; const AProc: TProc<T>): TMatch<T>; overload; inline;
-
-    {$REGION 'Doc - Combine'}
-    /// <summary>
-    ///   Combines multiple patterns into a single composite pattern. This allows grouping various matching logics
-    ///   into a single pattern, making code reuse and organization easier.
-    /// </summary>
-    /// <param name="APatterns">
-    ///   An array of patterns to be combined into a composite pattern.
-    /// </param>
-    /// <returns>
-    ///   An instance of the resulting matching pattern obtained by combining the provided patterns.
-    /// </returns>
-    {$ENDREGION}
     function Combine(const AMatch: TMatch<T>): TMatch<T>; inline;
-
-    {$REGION 'Doc - TryExcept'}
-    /// <summary>
-    ///   Defines an exception handling section for the current pattern. The code block provided in <paramref name="AProc"/>
-    ///   will be executed within a try-except block, and any exception that occurs during execution will be caught and handled.
-    /// </summary>
-    /// <param name="AProc">
-    ///   A procedure (TProc) containing the code to be executed within the try-except block.
-    /// </param>
-    /// <returns>
-    ///   The current pattern itself, allowing the continuation of pattern construction after the try-except clause.
-    /// </returns>
-    {$ENDREGION}
     function TryExcept(AProc: TProc): TMatch<T>; inline;
-
-    {$REGION 'Doc - Execute'}
-    /// <summary>
-    ///   Executes the pattern built so far and evaluates whether the current value matches any of the defined patterns.
-    ///   If a matching pattern is found, the pattern execution is halted, and a result pair is returned,
-    ///   consisting of a String representing the matching pattern and a Boolean indicating whether the match was successful.
-    ///   If no matching pattern is found, a default value is returned, indicating a match with the "default" pattern if defined.
-    /// </summary>
-    /// <returns>
-    ///   A result pair containing a String representing the found matching pattern and a Boolean
-    ///   indicating whether the match was successful.
-    /// </returns>
-    {$ENDREGION}
-    function Execute: TResultPair<Boolean, String>; overload; //inline;
-    function Execute<R>: TResultPair<R, String>; overload; //inline;
+    function Execute: TResultPair<Boolean, String>; overload; inline;
+    function Execute<R>: TResultPair<R, String>; overload; inline;
   end;
 
   TMatch = class
@@ -509,9 +260,12 @@ var
   LCaseType: TCaseType;
 begin
   FCombines := TList<TValue>.Create;
+  FCombines.Capacity := 10;
   for LCaseType := Low(TCaseType) to High(TCaseType) do
-      FCases[LCaseType] := TCaseGroup.Create;
-  //
+  begin
+    FCases[LCaseType] := TCaseGroup.Create;
+    FCases[LCaseType].Capacity := 10;
+  end;
   FValue := TValue.From<T>(AValue);
   // Private method for resetting variables.
   _StartVariables;

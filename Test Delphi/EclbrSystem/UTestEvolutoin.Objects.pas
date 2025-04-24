@@ -4,7 +4,7 @@ interface
 
 uses
   DUnitX.TestFramework,
-  Evolution.Objects;
+  System.Evolution.Objects;
 
 type
   TMyClass = class

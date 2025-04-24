@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,7 +17,8 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
@@ -27,7 +26,7 @@
 
 {$T+}
 
-unit Evolution.Threading;
+unit System.Evolution.Threading;
 
 interface
 
@@ -37,76 +36,30 @@ uses
   Classes,
   SyncObjs,
   Threading,
-  Evolution.System;
+  System.Evolution.System;
 
 type
-  /// <summary>
-  ///   Represents a value that can hold any type.
-  /// </summary>
   TValue = Rtti.TValue;
-
-  /// <summary>
-  ///   Represents a future value that can be either successful or contain an error.
-  /// </summary>
-  TFuture = Evolution.System.TFuture;
-
-  /// <summary>
-  ///   Exception class for asynchronous operations.
-  /// </summary>
+  TFuture = System.Evolution.System.TFuture;
   EAsyncAwait = Exception;
 
-  /// <summary>
-  ///   Interface for automatic locking mechanisms.
-  /// </summary>
   IAutoLock = interface
     ['{1857DCF0-4B4C-491B-A546-CB82B199E2E1}']
-    /// <summary>
-    ///   Acquires the lock.
-    /// </summary>
     procedure Acquire;
-
-    /// <summary>
-    ///   Releases the lock.
-    /// </summary>
     procedure Release;
   end;
 
-  /// <summary>
-  ///   Provides automatic locking using a critical section.
-  /// </summary>
   TAutoLock = class(TInterfacedObject, IAutoLock)
   private
     FCriticalSection: TCriticalSection;
   public
-    /// <summary>
-    ///   Initializes a new instance of the TAutoLock class.
-    /// </summary>
     constructor Create;
-
-    /// <summary>
-    ///   Destroys the TAutoLock instance.
-    /// </summary>
     destructor Destroy; override;
-
-    /// <summary>
-    ///   Acquires the lock.
-    /// </summary>
     procedure Acquire; inline;
-
-    /// <summary>
-    ///   Releases the lock.
-    /// </summary>
     procedure Release; inline;
   end;
 
-  /// <summary>
-  ///   Pointer to a TAsync record.
-  /// </summary>
   PAsync = ^TAsync;
-
-  /// <summary>
-  ///   Represents an asynchronous operation.
-  /// </summary>
   TAsync = record
   strict private
     FTask: ITask;
@@ -121,132 +74,22 @@ type
     function _AwaitFunc(const ATimeout: Cardinal): TFuture; overload;
     function _ExecProc: TFuture;
   private
-    /// <summary>
-    ///   Initializes a new instance of the TAsync record with a procedure.
-    /// </summary>
-    /// <param name="AProc">
-    ///   The procedure to execute asynchronously.
-    /// </param>
     constructor Create(const AProc: TProc); overload;
-
-    /// <summary>
-    ///   Initializes a new instance of the TAsync record with a function.
-    /// </summary>
-    /// <param name="AFunc">
-    ///   The function to execute asynchronously.
-    /// </param>
     constructor Create(const AFunc: TFunc<TValue>); overload;
   public
-    /// <summary>
-    ///   Waits for the asynchronous operation to complete and executes a continuation.
-    /// </summary>
-    /// <param name="AContinue">
-    ///   The continuation procedure to execute after the operation completes.
-    /// </param>
-    /// <param name="ATimeout">
-    ///   The maximum time to wait for the operation to complete (in milliseconds).
-    /// </param>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function Await(const AContinue: TProc; const ATimeout: Cardinal = INFINITE): TFuture; overload; inline;
-
-    /// <summary>
-    ///   Waits for the asynchronous operation to complete.
-    /// </summary>
-    /// <param name="ATimeout">
-    ///   The maximum time to wait for the operation to complete (in milliseconds).
-    /// </param>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function Await(const ATimeout: Cardinal = INFINITE): TFuture; overload; inline;
-
-    /// <summary>
-    ///   Starts the asynchronous operation.
-    /// </summary>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function Run: TFuture; overload;
-
-    /// <summary>
-    ///   Starts the asynchronous operation with an error handler.
-    /// </summary>
-    /// <param name="AError">
-    ///   The error handler to execute if an exception occurs.
-    /// </param>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function Run(const AError: TFunc<Exception, TFuture>): TFuture; overload; inline;
-
-    /// <summary>
-    ///   Starts the asynchronous operation without waiting for completion.
-    /// </summary>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function NoAwait: TFuture; overload;
-
-    /// <summary>
-    ///   Starts the asynchronous operation without waiting for completion and with an error handler.
-    /// </summary>
-    /// <param name="AError">
-    ///   The error handler to execute if an exception occurs.
-    /// </param>
-    /// <returns>
-    ///   A TFuture representing the result of the operation.
-    /// </returns>
     function NoAwait(const AError: TFunc<Exception, TFuture>): TFuture; overload; inline;
-
-    /// <summary>
-    ///   Gets the status of the asynchronous operation.
-    /// </summary>
-    /// <returns>
-    ///   The status of the task.
-    /// </returns>
     function Status: TTaskStatus; inline;
-
-    /// <summary>
-    ///   Gets the ID of the asynchronous task.
-    /// </summary>
-    /// <returns>
-    ///   The ID of the task.
-    /// </returns>
     function GetId: Integer; inline;
-
-    /// <summary>
-    ///   Cancels the asynchronous operation.
-    /// </summary>
     procedure Cancel; inline;
-
-    /// <summary>
-    ///   Checks if the asynchronous operation has been canceled.
-    /// </summary>
     procedure CheckCanceled; inline;
   end;
 
-/// <summary>
-///   Creates a new asynchronous operation with a procedure.
-/// </summary>
-/// <param name="AProc">
-///   The procedure to execute asynchronously.
-/// </param>
-/// <returns>
-///   A TAsync representing the asynchronous operation.
-/// </returns>
 function Async(const AProc: TProc): TAsync; overload; inline;
-
-/// <summary>
-///   Creates a new asynchronous operation with a function.
-/// </summary>
-/// <param name="AFunc">
-///   The function to execute asynchronously.
-/// </param>
-/// <returns>
-///   A TAsync representing the asynchronous operation.
-/// </returns>
 function Async(const AFunc: TFunc<TValue>): TAsync; overload; inline;
 
 implementation

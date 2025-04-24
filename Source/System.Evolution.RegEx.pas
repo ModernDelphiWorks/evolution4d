@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,13 +17,14 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
-unit Evolution.RegEx;
+unit System.Evolution.RegEx;
 
 interface
 

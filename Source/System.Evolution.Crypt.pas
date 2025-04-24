@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,25 +17,23 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
-unit Evolution.Crypt;
+unit System.Evolution.Crypt;
 
 interface
 
 uses
   Classes,
   SysUtils,
-  Evolution.Std;
+  System.Evolution.Std;
 
 type
-  /// <summary>
-  ///   Represents a packet of data that can be interpreted in multiple ways.
-  /// </summary>
   PPacket = ^TPacket;
   TPacket = packed record
     case Integer of
@@ -52,104 +48,13 @@ type
     class function _DecodePacket(AInBuf: PAnsiChar; var nChars: Integer): TPacket; static;
     class procedure _EncodePacket(const APacket: TPacket; NumChars: Integer; AOutBuf: PAnsiChar); static;
   public
-    /// <summary>
-    ///   Decodes a Base64 encoded string into a byte array.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The Base64 encoded string.
-    /// </param>
-    /// <returns>
-    ///   The decoded byte array.
-    /// </returns>
     class function DecodeBase64(const AInput: String): TBytes; static; inline;
-
-    /// <summary>
-    ///   Encodes a byte array into a Base64 encoded string.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The byte array to encode.
-    /// </param>
-    /// <param name="ASize">
-    ///   The size of the byte array.
-    /// </param>
-    /// <returns>
-    ///   The Base64 encoded string.
-    /// </returns>
     class function EncodeBase64(const AInput: Pointer; const ASize: Integer): String; static; inline;
-
-    /// <summary>
-    ///   Encodes a string into a Base64 encoded string.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The string to encode.
-    /// </param>
-    /// <returns>
-    ///   The Base64 encoded string.
-    /// </returns>
     class function EncodeString(const AInput: String): String; static; inline;
-
-    /// <summary>
-    ///   Decodes a Base64 encoded string into a string.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The Base64 encoded string.
-    /// </param>
-    /// <returns>
-    ///   The decoded string.
-    /// </returns>
     class function DecodeString(const AInput: String): String; static; inline;
-
-    /// <summary>
-    ///   Encodes a stream into another stream.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The input stream.
-    /// </param>
-    /// <param name="AOutput">
-    ///   The output stream.
-    /// </param>
     class procedure EncodeStream(const AInput, AOutput: TStream); static;
-
-    /// <summary>
-    ///   Decodes a stream into another stream.
-    /// </summary>
-    /// <param name="AInput">
-    ///   The input stream.
-    /// </param>
-    /// <param name="AOutput">
-    ///   The output stream.
-    /// </param>
     class procedure DecodeStream(const AInput, AOutput: TStream); static;
-
-    /// <summary>
-    ///   Computes a hash value for a string.
-    /// </summary>
-    /// <param name="AValue">
-    ///   The string to hash.
-    /// </param>
-    /// <returns>
-    ///   The computed hash value.
-    /// </returns>
     class function Hash(const AValue: MarshaledAString): Cardinal; static; inline;
-
-    /// <summary>
-    ///   Computes a simple MD5 hash for a combination of date, integers, and a key.
-    /// </summary>
-    /// <param name="AData">
-    ///   The date to include in the hash.
-    /// </param>
-    /// <param name="ANr1">
-    ///   The first integer to include in the hash.
-    /// </param>
-    /// <param name="ANr2">
-    ///   The second integer to include in the hash.
-    /// </param>
-    /// <param name="Akey">
-    ///   The key to include in the hash.
-    /// </param>
-    /// <returns>
-    ///   The computed MD5 hash as a string.
-    /// </returns>
     class function MD5Simple(const AData: TDate; const ANr1, ANr2: Integer; const Akey: String): String; static; inline;
   end;
 

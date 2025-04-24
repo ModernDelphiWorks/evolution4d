@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,13 +17,14 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
-unit Evolution.Objects;
+unit System.Evolution.Objects;
 
 {$I .\evolution4d.inc}
 
@@ -43,204 +42,63 @@ uses
 type
   TArrayValue = array of TValue;
 
-  /// <summary>
-  /// Interface for a factory that creates objects dynamically using RTTI.
-  /// </summary>
   IEvolutoinObject = interface
     ['{486D1BA3-6AEE-46A6-A845-D5154BEBE31C}']
-    /// <summary>
-    /// Creates an instance of a class using its default constructor.
-    /// </summary>
-    /// <param name="AClass">The class type to instantiate.</param>
-    /// <returns>The created object instance.</returns>
     function Factory(const AClass: TClass): TObject; overload;
-
-    /// <summary>
-    /// Creates an instance of a class using a specific constructor with arguments.
-    /// </summary>
-    /// <param name="AClass">The class type to instantiate.</param>
-    /// <param name="AArgs">Array of arguments to pass to the constructor.</param>
-    /// <param name="AMethodName">The name of the constructor method to invoke.</param>
-    /// <returns>The created object instance.</returns>
     function Factory(const AClass: TClass; const AArgs: TArrayValue;
       const AMethodName: String): TObject; overload;
   end;
 
-  /// <summary>
-  /// Sealed class implementing IObject, providing RTTI-based object creation.
-  /// Uses a singleton TRttiContext for efficiency.
-  /// </summary>
   TEvolutionObject = class sealed(TInterfacedObject, IEvolutoinObject)
   strict private
-    /// <summary>
-    /// Singleton RTTI context used for reflection operations.
-    /// </summary>
     class var FContext: TRttiContext;
-
-    /// <summary>
-    /// Global critical section to ensure thread-safe initialization of AutoRef locks.
-    /// </summary>
     class var FAutoRefLock: TCriticalSection;
   protected
-    /// <summary>
-    /// Provides access to the global critical section for AutoRef initialization.
-    /// </summary>
-    /// <returns>The global TCriticalSection instance.</returns>
     class function AutoRefLock: TCriticalSection; static;
-
-    /// <summary>
-    /// Initializes the RTTI context and global lock.
-    /// Called during unit initialization.
-    /// </summary>
     class procedure InitializeContext; static;
-
-    /// <summary>
-    /// Finalizes the RTTI context and global lock.
-    /// Called during unit finalization.
-    /// </summary>
     class procedure FinalizeContext; static;
-
     class function Context: TRttiContext; static;
   public
-    /// <summary>
-    /// Default constructor for TObjectEx.
-    /// </summary>
     constructor Create;
-
-    /// <summary>
-    /// Destructor for TObjectEx, ensures proper cleanup.
-    /// </summary>
     destructor Destroy; override;
-
-    /// <summary>
-    /// Creates a new instance of TObjectEx as an IObject interface.
-    /// </summary>
-    /// <returns>An IObject instance.</returns>
     class function New: IEvolutoinObject;
-
-    /// <summary>
-    /// Creates an instance of a class using its default constructor.
-    /// </summary>
-    /// <param name="AClass">The class type to instantiate.</param>
-    /// <returns>The created object instance.</returns>
     function Factory(const AClass: TClass): TObject; overload;
-
-    /// <summary>
-    /// Creates an instance of a class using a specific constructor with arguments.
-    /// </summary>
-    /// <param name="AClass">The class type to instantiate.</param>
-    /// <param name="AArgs">Array of arguments to pass to the constructor.</param>
-    /// <param name="AMethodName">The name of the constructor method to invoke.</param>
-    /// <returns>The created object instance.</returns>
     function Factory(const AClass: TClass; const AArgs: TArrayValue;
       const AMethodName: String): TObject; overload;
-
-    /// <summary>
-    /// Creates an instance of an interface type using its default constructor.
-    /// </summary>
-    /// <returns>The created interface instance.</returns>
     function Factory<T: IInterface>: T; overload;
   end;
 
-  /// <summary>
-  /// Interface for a smart pointer that manages object lifetime and state.
-  /// </summary>
   ISmartPtr<T> = interface
     ['{57FF7863-CE3E-4FE6-89BE-99539495CDB7}']
-    /// <summary>
-    /// Checks if the managed object is null.
-    /// </summary>
-    /// <returns>True if the object is null, False otherwise.</returns>
     function IsNull: Boolean;
-
-    /// <summary>
-    /// Checks if the managed object is loaded and valid.
-    /// </summary>
-    /// <returns>True if the object is loaded, False otherwise.</returns>
     function IsLoaded: Boolean;
   end;
 
-  /// <summary>
-  /// Interface for a lock mechanism used in AutoRef to ensure thread safety.
-  /// </summary>
   IAutoRefLock = interface
     ['{4D666831-0735-4EF7-9977-06CF47C33ED6}']
-    /// <summary>
-    /// Acquires the lock for thread-safe operations.
-    /// </summary>
     procedure Acquire;
-
-    /// <summary>
-    /// Releases the lock after thread-safe operations.
-    /// </summary>
     procedure Release;
   end;
 
-  /// <summary>
-  /// Class implementing IAutoRefLock, providing a thread-safe critical section.
-  /// </summary>
   TAutoRefLock = class(TInterfacedObject, IAutoRefLock)
   private
     FAutoRefLock: TCriticalSection;
   public
-    /// <summary>
-    /// Creates a new TAutoRefLock instance with an internal critical section.
-    /// </summary>
     constructor Create;
-
-    /// <summary>
-    /// Destroys the TAutoRefLock instance, freeing the critical section.
-    /// </summary>
     destructor Destroy; override;
-
-    /// <summary>
-    /// Acquires the critical section lock.
-    /// </summary>
     procedure Acquire;
-
-    /// <summary>
-    /// Releases the critical section lock.
-    /// </summary>
     procedure Release;
   end;
 
-  /// <summary>
-  /// A record-based smart pointer that manages object lifetime with lazy loading
-  /// and thread-safe initialization. Provides modern features like pattern matching
-  /// and scoped execution.
-  /// </summary>
   TSmartPtr<T: class, constructor> = record
   strict private
-    /// <summary>
-    /// The managed object instance, created lazily on first access.
-    /// </summary>
     FValue: T;
-
-    /// <summary>
-    /// Internal smart pointer managing the object's lifetime.
-    /// </summary>
     FSmartPtr: ISmartPtr<T>;
-
-    /// <summary>
-    /// Thread-safe lock for managing object initialization.
-    /// </summary>
     FAutoRefLock: IAutoRefLock;
-
-    /// <summary>
-    /// RTTI-based factory for creating object instances.
-    /// </summary>
     FObjectEx: IEvolutoinObject;
-
-    /// <summary>
-    /// Internal method to retrieve the managed object, initializing it if necessary.
-    /// </summary>
-    /// <returns>The managed object instance.</returns>
     function _GetAsRef: T;
   strict private
     type
-      /// <summary>
-      /// Internal class implementing ISmartPtr for object lifetime management.
-      /// </summary>
       TSmartPtr = class(TInterfacedObject, ISmartPtr<T>)
       private
         FValue: TObject;
@@ -252,51 +110,13 @@ type
         function IsLoaded: Boolean;
       end;
   public
-    /// <summary>
-    /// Creates an AutoRef instance with an optional initial object.
-    /// </summary>
-    /// <param name="AObjectRef">The object to manage, or nil for lazy initialization.</param>
     constructor Create(const AObjectRef: T);
-
-    /// <summary>
-    /// Implicit conversion from an object to an AutoRef instance.
-    /// </summary>
     class operator Implicit(const AObjectRef: T): TSmartPtr<T>;
-
-    /// <summary>
-    /// Implicit conversion from an AutoRef instance to its managed object.
-    /// </summary>
     class operator Implicit(const AAutoRef: TSmartPtr<T>): T;
-
-    /// <summary>
-    /// Checks if the managed object is null.
-    /// </summary>
-    /// <returns>True if null, False otherwise.</returns>
     function IsNull: Boolean;
-
-    /// <summary>
-    /// Checks if the managed object is loaded and valid.
-    /// </summary>
-    /// <returns>True if loaded, False otherwise.</returns>
     function IsLoaded: Boolean;
-
-    /// <summary>
-    /// Performs pattern matching on the managed object, executing a function based on its state.
-    /// </summary>
-    /// <param name="ANullFunc">Function to execute if the object is null.</param>
-    /// <param name="AValidFunc">Function to execute if the object is valid.</param>
-    /// <returns>The result of the executed function.</returns>
     function Match<R>(const ANullFunc: TFunc<R>; const AValidFunc: TFunc<T, R>): R;
-
-    /// <summary>
-    /// Executes an action with the managed object, ensuring it is released afterward.
-    /// </summary>
-    /// <param name="AAction">The action to perform with the object.</param>
     procedure Scoped(const AAction: TProc<T>);
-
-    /// <summary>
-    /// Property to access the managed object, initializing it lazily if needed.
-    /// </summary>
     property AsRef: T read _GetAsRef;
   end;
 

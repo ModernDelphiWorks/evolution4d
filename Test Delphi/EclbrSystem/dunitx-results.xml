@@ -1,28 +1,109 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<test-results name="D:\PROJETOS-Brasil\Evolution4D\Test Delphi\EclbrSystem\PTestSafeTry.exe" total="16" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-04-05" time="10.404">
+<test-results name="D:\PROJETOS-Brasil\Evolution4D\Test Delphi\EclbrSystem\PTestMatch.exe" total="43" errors="0" failures="6" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2025-04-24" time="5.849">
   <culture-info current-culture="en" current-uiculture="en" />
-  <test-suite type="Assembly" name="PTestSafeTry.exe" executed="true" result="Success" success="True" time="10.404" asserts="0">
+  <test-suite type="Assembly" name="PTestMatch.exe" executed="true" result="Failure" success="False" time="5.849" asserts="0">
     <results>
-        <test-suite type="Namespace" name="UTestEvolution" executed="true" result="Success" success="True" time="10.403" asserts="0" >
+        <test-suite type="Namespace" name="UTestEvolution" executed="true" result="Failure" success="False" time="5.848" asserts="0" >
           <results>
-              <test-suite type="Fixture" name="TTestSafeTry" executed="True" result="Success" success="True" time="10.403" >
+              <test-suite type="Fixture" name="TestTMatch" executed="True" result="Failure" success="False" time="5.848" >
                 <results>
-                  <test-case name="TestTryExceptFinally_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryExceptFinally_Exception" executed="True" result="Success" success="True" time="3.102" asserts="0" />
-                  <test-case name="TestTryOnly_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryOnly_Exception" executed="True" result="Success" success="True" time="1.083" asserts="0" />
-                  <test-case name="TestTryFinally_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryFinally_Exception" executed="True" result="Success" success="True" time="0.966" asserts="0" />
-                  <test-case name="TestFinallyOnly" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestNoTry" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestEndWithoutException" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestEndWithException" executed="True" result="Success" success="True" time="2.405" asserts="0" />
-                  <test-case name="TestTryFuncInteger_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryFuncInteger_Exception" executed="True" result="Success" success="True" time="0.953" asserts="0" />
-                  <test-case name="TestTryFuncString_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryFuncString_Exception" executed="True" result="Success" success="True" time="0.893" asserts="0" />
-                  <test-case name="TestTryFuncDouble_Ok" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-                  <test-case name="TestTryFuncDouble_Exception" executed="True" result="Success" success="True" time="0.999" asserts="0" />
+                  <test-case name="TestMatchWithMatchingCase" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithNoMatchingCase" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithMultipleCases" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSingleCaseOf" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseEqArrayInteger" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseEqArrayString" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseEqArrayChar" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseArray" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSingleCaseOfWithArgument" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseMultiple" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestRange" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseIfAndGuard" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseIfOrGuard" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseIfNotGuard" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseDefault" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseTryExcept" executed="True" result="Success" success="True" time="5.787" asserts="0" />
+                  <test-case name="TestCaseChar" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseRangeSet" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseRegex" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseIsMatching" executed="True" result="Failure" success="False" time="0.021" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Expected [Value is an Integer: 42] but got [Value is of an unknown type]  ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestCaseIsObjectMatching" executed="True" result="Failure" success="False" time="0.001" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Expected [Value is a Object: TDog] but got [Value is of an unknown type]  ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestPatternCombinator" executed="True" result="Failure" success="False" time="0.001" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Expected [Value is a String] but got [Value is of an unknown type]  ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestMultipleCombines" executed="True" result="Failure" success="False" time="0.001" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Expected [Type is a String Value is "Hello"] but got [Value is "Hello"]  ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestEnumPatternMatching" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestEnumPatternMatchingWithReturn" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestPatternMatchingWithProduct" executed="True" result="Failure" success="False" time="0.002" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Condition is False when True expected. [Pattern matching failed.] ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestPatternMatchingWithDiscounts" executed="True" result="Failure" success="False" time="0.000" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Condition is False when True expected. [Pattern matching failed.] ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestCaseGtWithInteger" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseLtWithInteger" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestNestedCases" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCombineWithDefault" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestDefaultExecutionFailure" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchWithTTuple" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla_1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla_2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla_3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla_4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTupla_5" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchTuplaArrowFun" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestMatchHttpStatus" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseWeekdaySet" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestCaseRangeSetInteger" executed="True" result="Success" success="True" time="0.000" asserts="0" />
                 </results>
               </test-suite>
           </results>

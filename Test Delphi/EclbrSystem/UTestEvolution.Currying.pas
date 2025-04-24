@@ -11,7 +11,7 @@ uses
   System.Diagnostics,
   System.Classes,
   DateUtils,
-  Evolution.Currying;
+  System.Evolution.Currying;
 
 type
 

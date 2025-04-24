@@ -1,6 +1,4 @@
 ﻿{
-             Evolution4D: Modern Delphi Development Library
-
                           Apache License
                       Version 2.0, January 2004
                    http://www.apache.org/licenses/
@@ -19,13 +17,14 @@
 }
 
 {
-  @abstract(Evolution4D Library)
+  @abstract(Evolution4D: Modern Delphi Development Library)
+  @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
   @Discord(https://discord.gg/T2zJC8zX)
 }
 
-unit Evolution.Tuple;
+unit System.Evolution.Tuple;
 
 interface
 
@@ -34,152 +33,50 @@ uses
   TypInfo,
   SysUtils,
   Generics.Collections,
-  Generics.Defaults,
-  Evolution.System;
+  Generics.Defaults;
 
 type
-  Tuple = Evolution.System.Tuple;
-
-  /// <summary>
-  /// Interface for managing a dictionary of key-value pairs within a tuple.
-  /// </summary>
   ITupleDict<K> = interface
-    ['{A5F8C7E2-3F8D-4E9A-BC5F-7D8E9C2F4B1D}']
-    /// <summary>
-    /// Returns the underlying dictionary instance.
-    /// </summary>
-    /// <returns>The TDictionary<K, TValue> managed by this interface.</returns>
+    ['{73CD7882-7D2C-4842-A828-96CD6ECF417C}']
     function GetDict: TDictionary<K, TValue>;
-
-    /// <summary>
-    /// Returns the number of key-value pairs in the dictionary.
-    /// </summary>
-    /// <returns>The count of elements in the dictionary.</returns>
     function Count: Integer;
-
-    /// <summary>
-    /// Retrieves the value associated with the specified key.
-    /// </summary>
-    /// <param name="AKey">The key to look up in the dictionary.</param>
-    /// <returns>The TValue associated with the specified key.</returns>
     function GetItem(const AKey: K): TValue;
-
-    /// <summary>
-    /// Attempts to retrieve the value associated with the specified key.
-    /// </summary>
-    /// <param name="AKey">The key to look up in the dictionary.</param>
-    /// <param name="AValue">The output parameter to store the retrieved value.</param>
-    /// <returns>True if the key exists and the value was retrieved, False otherwise.</returns>
     function TryGetValue(const AKey: K; out AValue: TValue): Boolean;
   end;
 
-  /// <summary>
-  /// Internal class implementing ITupleDict<K> to manage a dictionary of key-value pairs.
-  /// </summary>
   TTupleDict<K> = class(TInterfacedObject, ITupleDict<K>)
   private
     FTupleDict: TDictionary<K, TValue>;
   public
-    /// <summary>
-    /// Creates a new instance of TTupleDict with the specified key-value pairs.
-    /// </summary>
-    /// <param name="ATuples">An array of TPair<K, TValue> to initialize the dictionary.</param>
     constructor Create(const ATuples: TArray<TPair<K, TValue>>);
-
-    /// <summary>
-    /// Destroys the instance and frees the internal dictionary.
-    /// </summary>
     destructor Destroy; override;
-
     function GetDict: TDictionary<K, TValue>;
     function Count: Integer;
     function GetItem(const AKey: K): TValue;
     function TryGetValue(const AKey: K; out AValue: TValue): Boolean;
   end;
 
-  /// <summary>
-  /// A record representing a tuple with key-value pairs, where keys are of type K and values are TValue.
-  /// Provides efficient access to values using a dictionary-based implementation.
-  /// </summary>
   TTuple<K> = record
   strict private
     FTupleDict: ITupleDict<K>;
     constructor Create(const ATuples: TArray<TPair<K, TValue>>);
     function GetItem(const AKey: K): TValue;
   public
-    /// <summary>
-    /// Implicit conversion from TTuple<K> to TArray<TPair<K, TValue>>.
-    /// </summary>
     class operator Implicit(const P: TTuple<K>): TArray<TPair<K, TValue>>; inline;
-
-    /// <summary>
-    /// Implicit conversion from TArray<TPair<K, TValue>> to TTuple<K>.
-    /// </summary>
     class operator Implicit(const P: TArray<TPair<K, TValue>>): TTuple<K>; inline;
-
-    /// <summary>
-    /// Checks if two TTuple<K> instances are equal based on their key-value pairs.
-    /// </summary>
     class operator Equal(const Left, Right: TTuple<K>): Boolean; inline;
-
-    /// <summary>
-    /// Checks if two TTuple<K> instances are not equal based on their key-value pairs.
-    /// </summary>
     class operator NotEqual(const Left, Right: TTuple<K>): Boolean; inline;
-
-    /// <summary>
-    /// Creates a new TTuple<K> instance with the specified keys and values.
-    /// </summary>
-    /// <param name="AKeys">An array of keys of type K.</param>
-    /// <param name="AValues">An array of values of type TValue to associate with the keys.</param>
-    /// <returns>A new TTuple<K> instance.</returns>
     class function New(const AKeys: TArray<K>;
       const AValues: TArray<TValue>): TTuple<K>; static; inline;
-
-    /// <summary>
-    /// Retrieves the value associated with the specified key, cast to type T.
-    /// </summary>
-    /// <param name="AKey">The key to look up.</param>
-    /// <returns>The value associated with the key, cast to T.</returns>
-    /// <exception cref="Exception">Raised if the key is not found.</exception>
     function Get<T>(const AKey: K): T; inline;
-
-    /// <summary>
-    /// Attempts to retrieve the value associated with the specified key, cast to type T.
-    /// </summary>
-    /// <param name="AKey">The key to look up.</param>
-    /// <param name="AValue">The output parameter to store the retrieved value.</param>
-    /// <returns>True if the key exists and the value was retrieved, False otherwise.</returns>
     function TryGet<T>(const AKey: K; out AValue: T): Boolean; inline;
-
-    /// <summary>
-    /// Returns the number of key-value pairs in the tuple.
-    /// </summary>
-    /// <returns>The count of elements in the tuple.</returns>
     function Count: Integer; inline;
-
-    /// <summary>
-    /// Creates a new TTuple<K> instance with the specified keys and values, replacing the current content.
-    /// </summary>
-    /// <param name="AKeys">An array of keys of type K.</param>
-    /// <param name="AValues">An array of values of type TValue to associate with the keys.</param>
-    /// <returns>A new TTuple<K> instance with the updated key-value pairs.</returns>
     function SetTuple(const AKeys: TArray<K>; const AValues: TArray<TValue>): TTuple<K>; inline;
-
-    /// <summary>
-    /// Property to access values by key.
-    /// </summary>
-    /// <param name="Key">The key to look up.</param>
-    /// <returns>The TValue associated with the specified key.</returns>
     property Items[const Key: K]: TValue read GetItem; default;
   end;
 
   TValueArray = array of TValue;
 
-  /// <summary>
-  /// A record representing a tuple with a positional array of TValue elements.
-  /// Provides access to elements by index.
-  /// </summary>
   PTuple = ^TTuple;
   TTuple = record
   strict private
@@ -187,65 +84,31 @@ type
     constructor Create(const Args: TValueArray);
     function GetItem(const AIndex: Integer): TValue;
   public
-    /// <summary>
-    /// Implicit conversion from TTuple to TValueArray.
-    /// </summary>
     class operator Implicit(const Args: TTuple): TValueArray;
-
-    /// <summary>
-    /// Implicit conversion from an array of Variant to TTuple.
-    /// </summary>
     class operator Implicit(const Args: array of Variant): TTuple;
-
-    /// <summary>
-    /// Implicit conversion from TValueArray to TTuple.
-    /// </summary>
     class operator Implicit(const Args: TValueArray): TTuple;
-
-    /// <summary>
-    /// Checks if two TTuple instances are equal based on their elements.
-    /// </summary>
     class operator Equal(const Left, Right: TTuple): Boolean; inline;
-
-    /// <summary>
-    /// Checks if two TTuple instances are not equal based on their elements.
-    /// </summary>
     class operator NotEqual(const Left, Right: TTuple): Boolean; inline;
-
-    /// <summary>
-    /// Creates a new TTuple instance with the specified values.
-    /// </summary>
-    /// <param name="AValues">An array of TValue elements to initialize the tuple.</param>
-    /// <returns>A new TTuple instance.</returns>
     class function New(const AValues: TValueArray): TTuple; static; inline;
-
-    /// <summary>
-    /// Retrieves the value at the specified index, cast to type T.
-    /// </summary>
-    /// <param name="AIndex">The index of the value to retrieve.</param>
-    /// <returns>The value at the specified index, cast to T.</returns>
     function Get<T>(const AIndex: Integer): T; inline;
-
-    /// <summary>
-    /// Returns the number of elements in the tuple.
-    /// </summary>
-    /// <returns>The count of elements in the tuple.</returns>
     function Count: Integer; inline;
-
-    /// <summary>
-    /// Destructures the tuple into variables passed as pointers.
-    /// </summary>
-    /// <param name="AArgs">An open array of pointers to variables that will receive the tuple values.</param>
-    /// <exception cref="Exception">Raised if the number of pointers does not match the tuple length.</exception>
     procedure Dest(const AVarRefs: TArray<Pointer>);
-
-    /// <summary>
-    /// Property to access values by index.
-    /// </summary>
-    /// <param name="Key">The index of the value to retrieve.</param>
-    /// <returns>The TValue at the specified index.</returns>
     property Items[const Key: Integer]: TValue read GetItem; default;
   end;
+
+  TTupluString = TTuple<string>;
+  TTupluInteger = TTuple<Integer>;
+  TTupluInt16 = TTuple<Int16>;
+  TTupluInt32 = TTuple<Int32>;
+  TTupluInt64 = TTuple<Int64>;
+  TTupluDouble = TTuple<Double>;
+  TTupluCurrency = TTuple<Currency>;
+  TTupluSingle = TTuple<Single>;
+  TTupluDate = TTuple<TDate>;
+  TTupluTime = TTuple<TTime>;
+  TTupluDateTime = TTuple<TDateTime>;
+  TTupluChar = TTuple<Char>;
+  TTupluVariant = TTuple<Variant>;
 
 implementation
 
@@ -253,11 +116,11 @@ implementation
 
 constructor TTupleDict<K>.Create(const ATuples: TArray<TPair<K, TValue>>);
 var
-  I: Integer;
+  LFor: Integer;
 begin
   FTupleDict := TDictionary<K, TValue>.Create;
-  for I := 0 to High(ATuples) do
-    FTupleDict.Add(ATuples[I].Key, ATuples[I].Value);
+  for LFor := 0 to High(ATuples) do
+    FTupleDict.Add(ATuples[LFor].Key, ATuples[LFor].Value);
 end;
 
 destructor TTupleDict<K>.Destroy;
@@ -354,14 +217,14 @@ end;
 class operator TTuple<K>.Implicit(const P: TTuple<K>): TArray<TPair<K, TValue>>;
 var
   LPair: TPair<K, TValue>;
-  I: Integer;
+  LFor: Integer;
 begin
   SetLength(Result, P.FTupleDict.Count);
-  I := 0;
+  LFor := 0;
   for LPair in P.FTupleDict.GetDict do
   begin
-    Result[I] := LPair;
-    Inc(I);
+    Result[LFor] := LPair;
+    Inc(LFor);
   end;
 end;
 
@@ -369,14 +232,14 @@ class function TTuple<K>.New(const AKeys: TArray<K>;
   const AValues: TArray<TValue>): TTuple<K>;
 var
   LPairs: TArray<TPair<K, TValue>>;
-  I: Integer;
+  LFor: Integer;
 begin
   if Length(AKeys) <> Length(AValues) then
     raise Exception.Create('Number of keys and values must match');
 
   SetLength(LPairs, Length(AKeys));
-  for I := 0 to High(AKeys) do
-    LPairs[I] := TPair<K, TValue>.Create(AKeys[I], AValues[I]);
+  for LFor := 0 to High(AKeys) do
+    LPairs[LFor] := TPair<K, TValue>.Create(AKeys[LFor], AValues[LFor]);
   Result := TTuple<K>.Create(LPairs);
 end;
 
