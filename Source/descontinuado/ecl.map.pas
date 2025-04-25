@@ -1,5 +1,5 @@
 ﻿{
-               Evolution4D: Modern Delphi Development Library
+               Evolution4D: Modern Delphi Development Library for Delphi
 
                     GNU Lesser General Public License
                       Versão 3, 29 de junho de 2007
