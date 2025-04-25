@@ -17,7 +17,7 @@
 }
 
 {
-  @abstract(Evolution4D: Modern Delphi Development Library)
+  @abstract(Evolution4D: Modern Delphi Development Library for Delphi)
   @description(Evolution4D brings modern, fluent, and expressive syntax to Delphi, making code cleaner and development more productive.)
   @created(03 Abr 2025)
   @author(Isaque Pinheiro <isaquepsp@gmail.com>)
