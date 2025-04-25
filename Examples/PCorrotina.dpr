@@ -4,10 +4,10 @@ uses
   FastMM4,
   Vcl.Forms,
   UCorrotina in 'UCorrotina.pas' {Form2},
-  Evolution.Coroutine in '..\Source\Evolution.Coroutine.pas',
-  Evolution.Std in '..\Source\Evolution.Std.pas',
-  Evolution.Threading in '..\Source\Evolution.Threading.pas',
-  Evolution.System in '..\Source\Evolution.System.pas';
+  System.Evolution.Coroutine in '..\Source\System.Evolution.Coroutine.pas',
+  System.Evolution.Std in '..\Source\System.Evolution.Std.pas',
+  System.Evolution.System in '..\Source\System.Evolution.System.pas',
+  System.Evolution.Threading in '..\Source\System.Evolution.Threading.pas';
 
 {$R *.res}
 
